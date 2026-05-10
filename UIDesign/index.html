@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - AI Career Copilot</title>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="auth-layout">
+        <div class="auth-logo">
+            <i class="ph ph-compass-tool"></i>
+            Career Copilot
+        </div>
+
+        <!-- Login Form -->
+        <div class="auth-card" id="login-card">
+            <div class="auth-header">
+                <h1>Sign in</h1>
+                <p>Stay updated on your professional world</p>
+            </div>
+
+            <form action="dashboard.html">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email or phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Sign in
+                </button>
+            </form>
+
+            <div class="auth-footer" style="margin-top: 2rem;">
+                New to Career Copilot? <a href="#" id="show-signup">Join now</a>
+            </div>
+        </div>
+
+        <!-- Sign Up Form (Hidden by default) -->
+        <div class="auth-card hidden" id="signup-card">
+            <div class="auth-header">
+                <h1>Join Career Copilot</h1>
+                <p>Make the most of your professional life</p>
+            </div>
+
+            <form action="dashboard.html">
+                <div class="form-group">
+                    <label class="form-label" for="new-email">Email</label>
+                    <input type="email" id="new-email" class="form-control" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="new-password">Password (6 or more characters)</label>
+                    <input type="password" id="new-password" class="form-control" placeholder="Password" required>
+                </div>
+                
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem; text-align: center;">
+                    By clicking Agree & Join, you agree to the Career Copilot User Agreement, Privacy Policy, and Cookie Policy.
+                </p>
+
+                <button type="submit" class="btn btn-primary">
+                    Agree & Join
+                </button>
+            </form>
+
+            <div class="auth-footer" style="margin-top: 2rem;">
+                Already on Career Copilot? <a href="#" id="show-login">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple JS to toggle forms -->
+    <script>
+        const loginCard = document.getElementById('login-card');
+        const signupCard = document.getElementById('signup-card');
+        
+        document.getElementById('show-signup').addEventListener('click', (e) => {
+            e.preventDefault();
+            loginCard.classList.add('hidden');
+            signupCard.classList.remove('hidden');
+            document.title = "Join - AI Career Copilot";
+        });
+
+        document.getElementById('show-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            signupCard.classList.add('hidden');
+            loginCard.classList.remove('hidden');
+            document.title = "Sign In - AI Career Copilot";
+        });
+    </script>
+</body>
+</html>

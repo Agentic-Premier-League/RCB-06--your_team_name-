@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Career Copilot</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="dashboard.html" class="navbar-brand">
+                <i class="ph ph-compass-tool"></i>
+                Career Copilot
+            </a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link active">
+                        <i class="ph ph-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume-studio.html" class="nav-link">
+                        <i class="ph ph-file-text"></i>
+                        <span>Resume</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="opportunities.html" class="nav-link">
+                        <i class="ph ph-briefcase"></i>
+                        <span>Opportunities</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="interview-prep.html" class="nav-link">
+                        <i class="ph ph-microphone-stage"></i>
+                        <span>Interview Prep</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="career-tracker.html" class="nav-link">
+                        <i class="ph ph-chart-line-up"></i>
+                        <span>Tracker</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="navbar-profile">
+                <a href="profile.html" class="profile-link">
+                    <img src="https://ui-avatars.com/api/?name=Student&background=0a66c2&color=fff&rounded=true" alt="Profile">
+                    <span class="profile-text">Me ▼</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        
+        <!-- Welcome Banner (Full Width) -->
+        <div class="card welcome-banner">
+            <div class="welcome-text">
+                <h2>Welcome back, Jane! 👋</h2>
+                <p>You're 70% of the way to being interview-ready. Keep up the great work!</p>
+            </div>
+            <div class="welcome-progress">
+                <div class="progress-labels">
+                    <span>Profile Readiness</span>
+                    <span>70%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-bento-grid">
+            
+            <!-- Main Column (Left) -->
+            <div class="bento-main">
+                
+                <!-- Smart Upload Zone -->
+                <div class="card upload-card">
+                    <div class="upload-zone" id="drop-zone" onclick="document.getElementById('resume-upload').click()">
+                        <i class="ph ph-cloud-arrow-up"></i>
+                        <h3>Upload your resume</h3>
+                        <p>Drag & drop your file here or <strong>browse</strong></p>
+                        <span class="file-limits">Supported: PDF, DOCX (Max 5MB)</span>
+                        <input type="file" id="resume-upload" hidden accept=".pdf,.docx">
+                    </div>
+                </div>
+
+                <!-- AI Next Steps -->
+                <div class="card next-steps-card">
+                    <h3>AI Recommended Next Steps</h3>
+                    <div class="next-step-item">
+                        <div class="step-icon">
+                            <i class="ph ph-microphone-stage text-primary"></i>
+                        </div>
+                        <div class="step-content">
+                            <h4>Practice Behavioral Interview</h4>
+                            <p>Your resume is strong in technical skills. Practice communicating your soft skills.</p>
+                        </div>
+                        <a href="interview-prep.html" class="btn btn-outline btn-sm">Start Mock</a>
+                    </div>
+                    
+                    <div class="next-step-item">
+                        <div class="step-icon">
+                            <i class="ph ph-magnifying-glass-plus text-primary"></i>
+                        </div>
+                        <div class="step-content">
+                            <h4>Review Matched Roles</h4>
+                            <p>We found 3 new Software Engineering Intern roles matching your updated resume.</p>
+                        </div>
+                        <a href="opportunities.html" class="btn btn-outline btn-sm">View Roles</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Secondary Column (Right) -->
+            <div class="bento-sidebar">
+                
+                <!-- Pipeline Summary -->
+                <div class="card pipeline-card">
+                    <h3>Application Pipeline</h3>
+                    <div class="pipeline-stats">
+                        <div class="pipe-stat">
+                            <span class="pipe-num">4</span>
+                            <span class="pipe-label">Saved</span>
+                        </div>
+                        <div class="pipe-stat">
+                            <span class="pipe-num">2</span>
+                            <span class="pipe-label">Applied</span>
+                        </div>
+                        <div class="pipe-stat">
+                            <span class="pipe-num">0</span>
+                            <span class="pipe-label">Interviews</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Matches -->
+                <div class="card recommendations-card">
+                    <h3>Top Internship Matches</h3>
+                    <ul class="match-list">
+                        <li>
+                            <i class="ph ph-google-logo"></i>
+                            <div class="match-info">
+                                <h4>Software Engineering Intern</h4>
+                                <p>Google • Mountain View, CA</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ph ph-apple-logo"></i>
+                            <div class="match-info">
+                                <h4>Frontend Developer Intern</h4>
+                                <p>Apple • Cupertino, CA</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="ph ph-microsoft-logo"></i>
+                            <div class="match-info">
+                                <h4>PM Intern</h4>
+                                <p>Microsoft • Seattle, WA</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="opportunities.html" class="view-all-link">View all matches <i class="ph ph-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Simple drag and drop styling
+        const dropZone = document.getElementById('drop-zone');
+        
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            if(e.dataTransfer.files.length) {
+                alert('File ready to upload: ' + e.dataTransfer.files[0].name);
+            }
+        });
+
+        document.getElementById('resume-upload').addEventListener('change', (e) => {
+            if(e.target.files.length) {
+                alert('File selected: ' + e.target.files[0].name);
+            }
+        });
+    </script>
+
+</body>
+</html>
