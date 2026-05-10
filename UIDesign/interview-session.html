@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mock Interview Session — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"     class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html"  class="nav-link"><i class="ph ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link active"><i class="ph-fill ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link"><i class="ph ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link"><i class="ph ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
+            </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main class="main-container">
+
+    <!-- Session top bar -->
+    <div class="session-topbar">
+      <div class="session-topbar-left">
+        <span class="session-type-label"><i class="ph ph-chat-dots"></i> Behavioral Interview</span>
+        <span class="session-title">Software Engineering Intern · Google</span>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+        <div class="session-progress">
+          <span class="session-q-count" id="qCountLabel">Question 2 of 6</span>
+          <div class="session-progress-track">
+            <div class="session-progress-fill" id="progressFill" style="width:33%"></div>
+          </div>
+        </div>
+        <div class="session-timer" id="timer">28:43</div>
+        <button class="btn btn-sm" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);" onclick="endSession()">
+          <i class="ph ph-stop-circle"></i> End Session
+        </button>
+      </div>
+    </div>
+
+    <!-- Tip bar -->
+    <div class="session-tip-bar">
+      <i class="ph ph-lightbulb"></i>
+      <p><strong>STAR Tip:</strong> Structure your answer as Situation → Task → Action → Result. Aim for 2–3 minutes per answer. Be specific — use numbers and outcomes where possible.</p>
+    </div>
+
+    <!-- Two-column layout: question + answer | notes -->
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) 300px;gap:1.5rem;align-items:start;">
+
+      <div>
+        <!-- Question Card -->
+        <div class="question-card">
+          <div class="question-label">
+            <span><i class="ph ph-chat-dots"></i> &nbsp;Question 2 of 6 · Behavioral</span>
+            <span class="badge badge-primary">Leadership &amp; Teamwork</span>
+          </div>
+          <div class="question-text" id="questionText">
+            Tell me about a time you had to lead a team through a challenging technical project. What was your role, what obstacles did you face, and what was the outcome?
+          </div>
+        </div>
+
+        <!-- Answer area -->
+        <div class="answer-area">
+          <label>
+            <span class="form-label" style="margin:0;">Your Answer</span>
+            <span class="word-count" id="wordCount">0 words</span>
+          </label>
+          <textarea
+            class="form-control"
+            id="answerBox"
+            rows="9"
+            placeholder="Type your answer here using the STAR method...&#10;&#10;Situation: Set the scene — what was the context?&#10;Task: What was your specific responsibility?&#10;Action: What steps did YOU take?&#10;Result: What was the measurable outcome?"
+          ></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="session-actions">
+          <button class="btn btn-ghost btn-sm" onclick="prevQuestion()">
+            <i class="ph ph-caret-left"></i> Previous
+          </button>
+          <button class="btn btn-ghost btn-sm" onclick="skipQuestion()">
+            Skip <i class="ph ph-caret-right"></i>
+          </button>
+          <button class="btn btn-primary" onclick="nextQuestion()">
+            Submit &amp; Next Question <i class="ph ph-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Notes + upcoming questions -->
+      <div>
+
+        <!-- Personal notes -->
+        <div class="card" style="margin-bottom:1.25rem;">
+          <div class="card-header" style="padding:1rem 1.25rem;">
+            <h3 style="font-size:0.875rem;">My Notes</h3>
+            <span style="font-size:0.75rem;color:var(--text-light);">Private</span>
+          </div>
+          <div class="card-body" style="padding:1rem;">
+            <textarea
+              class="form-control"
+              rows="5"
+              placeholder="Jot down key points, examples to use, or things to remember..."
+              style="font-size:0.8125rem;resize:none;"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Question queue -->
+        <div class="card">
+          <div class="card-header" style="padding:1rem 1.25rem;">
+            <h3 style="font-size:0.875rem;">Upcoming Questions</h3>
+          </div>
+          <div style="padding:0.75rem 0;">
+
+            <div style="padding:0.625rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;opacity:0.5;">
+              <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);flex-shrink:0;margin-top:0.2rem;">Q1</span>
+              <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;line-height:1.4;text-decoration:line-through;">Describe a project where you had to learn a new technology quickly...</p>
+            </div>
+
+            <div style="padding:0.625rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;background:var(--primary-light);border-left:3px solid var(--primary);">
+              <span style="font-size:0.75rem;font-weight:700;color:var(--primary);flex-shrink:0;margin-top:0.2rem;">Q2</span>
+              <p style="font-size:0.8125rem;color:var(--primary);margin:0;line-height:1.4;font-weight:500;">Tell me about a time you led a team through a challenge... <em>(current)</em></p>
+            </div>
+
+            <div style="padding:0.625rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;">
+              <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);flex-shrink:0;margin-top:0.2rem;">Q3</span>
+              <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;line-height:1.4;">Give an example of a time you disagreed with a teammate. How did you resolve it?</p>
+            </div>
+
+            <div style="padding:0.625rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;">
+              <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);flex-shrink:0;margin-top:0.2rem;">Q4</span>
+              <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;line-height:1.4;">Tell me about your most challenging debugging experience...</p>
+            </div>
+
+            <div style="padding:0.625rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;">
+              <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);flex-shrink:0;margin-top:0.2rem;">Q5</span>
+              <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;line-height:1.4;filter:blur(3px);user-select:none;">Locked — answer Q3 first</p>
+            </div>
+
+            <div style="padding:0.625rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;">
+              <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted);flex-shrink:0;margin-top:0.2rem;">Q6</span>
+              <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;line-height:1.4;filter:blur(3px);user-select:none;">Locked — answer Q4 first</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Profile dropdown
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    // Word count
+    const answerBox = document.getElementById('answerBox');
+    answerBox.addEventListener('input', () => {
+      const words = answerBox.value.trim().split(/\s+/).filter(Boolean).length;
+      document.getElementById('wordCount').textContent = words + ' word' + (words !== 1 ? 's' : '');
+    });
+
+    // Timer countdown
+    let totalSeconds = 28 * 60 + 43;
+    const timerEl = document.getElementById('timer');
+    const timerInterval = setInterval(() => {
+      if (totalSeconds <= 0) { clearInterval(timerInterval); return; }
+      totalSeconds--;
+      const m = Math.floor(totalSeconds / 60);
+      const s = totalSeconds % 60;
+      timerEl.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+      timerEl.classList.toggle('warning', totalSeconds < 300);
+    }, 1000);
+
+    // Navigation
+    const questions = [
+      { text: "Describe a project where you had to learn a new technology very quickly. What was the technology, how did you approach learning it, and what was the result?", category: "Growth & Learning" },
+      { text: "Tell me about a time you had to lead a team through a challenging technical project. What was your role, what obstacles did you face, and what was the outcome?", category: "Leadership & Teamwork" },
+      { text: "Give an example of a time you disagreed with a teammate or manager. How did you handle the disagreement and what was the result?", category: "Communication" },
+      { text: "Tell me about your most challenging debugging experience. How did you approach it and what did you learn?", category: "Problem Solving" },
+      { text: "Describe a situation where you had to work under tight deadlines. How did you prioritize and what trade-offs did you make?", category: "Time Management" },
+      { text: "Tell me about a project you're most proud of. What made it special and what would you do differently?", category: "Impact & Reflection" },
+    ];
+
+    let currentQ = 1;
+
+    function updateQuestion() {
+      const q = questions[currentQ];
+      document.getElementById('questionText').textContent = q.text;
+      document.getElementById('qCountLabel').textContent = `Question ${currentQ + 1} of ${questions.length}`;
+      document.getElementById('progressFill').style.width = ((currentQ + 1) / questions.length * 100) + '%';
+      answerBox.value = '';
+      document.getElementById('wordCount').textContent = '0 words';
+    }
+
+    function nextQuestion() {
+      if (currentQ < questions.length - 1) { currentQ++; updateQuestion(); }
+      else { window.location.href = 'interview-review.html'; }
+    }
+
+    function prevQuestion() { if (currentQ > 0) { currentQ--; updateQuestion(); } }
+    function skipQuestion() { nextQuestion(); }
+
+    function endSession() {
+      if (confirm('End session early? Your progress will still be saved and scored.')) {
+        window.location.href = 'interview-review.html';
+      }
+    }
+  </script>
+
+</body>
+</html>

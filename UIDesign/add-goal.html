@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Goal — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="goal-page">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"     class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html"  class="nav-link"><i class="ph ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link"><i class="ph ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link active"><i class="ph-fill ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link"><i class="ph ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
+            </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-container">
+
+    <!-- Breadcrumb -->
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;font-size:0.875rem;color:var(--text-muted);">
+      <a href="career-tracker.html" style="color:var(--text-muted);display:flex;align-items:center;gap:0.25rem;">
+        <i class="ph ph-arrow-left"></i> Back to My Growth
+      </a>
+    </div>
+
+    <div style="max-width:680px;">
+
+      <div style="margin-bottom:1.5rem;">
+        <h1>Add New Goal</h1>
+        <p style="color:var(--text-muted);margin-top:0.25rem;">Set a clear, trackable goal to keep your career progress on track.</p>
+      </div>
+
+      <form onsubmit="saveGoal(event)">
+
+        <!-- Goal Title -->
+        <div class="card" style="margin-bottom:1.25rem;">
+          <div class="card-header"><h3>Goal Details</h3></div>
+          <div class="card-body">
+
+            <div class="form-group">
+              <label class="form-label">Goal Title <span style="color:var(--danger)">*</span></label>
+              <input type="text" class="form-control" id="goalTitle" placeholder="e.g. Apply to 10 internships this season" required>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Description <span style="font-weight:400;color:var(--text-light)">(optional)</span></label>
+              <textarea class="form-control" rows="3" placeholder="Add more context about this goal and why it matters to you..."></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Goal Type -->
+        <div class="card" style="margin-bottom:1.25rem;">
+          <div class="card-header"><h3>Goal Category</h3></div>
+          <div class="card-body">
+            <div class="goal-type-grid" id="goalTypeGrid">
+
+              <div class="goal-type-card active" onclick="selectType(this)">
+                <i class="ph ph-paper-plane-tilt"></i>
+                <span>Applications</span>
+              </div>
+
+              <div class="goal-type-card" onclick="selectType(this)">
+                <i class="ph ph-lightning"></i>
+                <span>Skill Building</span>
+              </div>
+
+              <div class="goal-type-card" onclick="selectType(this)">
+                <i class="ph ph-microphone-stage"></i>
+                <span>Interview Prep</span>
+              </div>
+
+              <div class="goal-type-card" onclick="selectType(this)">
+                <i class="ph ph-users-three"></i>
+                <span>Networking</span>
+              </div>
+
+              <div class="goal-type-card" onclick="selectType(this)">
+                <i class="ph ph-file-text"></i>
+                <span>Resume</span>
+              </div>
+
+              <div class="goal-type-card" onclick="selectType(this)">
+                <i class="ph ph-star"></i>
+                <span>Other</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Target & Progress -->
+        <div class="card" style="margin-bottom:1.25rem;">
+          <div class="card-header"><h3>Target &amp; Timeline</h3></div>
+          <div class="card-body">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Target Date <span style="color:var(--danger)">*</span></label>
+                <input type="date" class="form-control" id="targetDate" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Priority</label>
+                <select class="form-control">
+                  <option>High — Must achieve</option>
+                  <option selected>Medium — Should achieve</option>
+                  <option>Low — Nice to have</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row" style="margin-bottom:0;">
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Current Progress</label>
+                <input type="number" class="form-control" id="currentVal" placeholder="0" min="0">
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label class="form-label">Target Value <span style="font-weight:400;color:var(--text-light)">(optional)</span></label>
+                <input type="number" class="form-control" id="targetVal" placeholder="e.g. 10" min="1">
+                <span class="form-hint">Leave blank for a simple done/not-done goal</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Milestones -->
+        <div class="card" style="margin-bottom:1.5rem;">
+          <div class="card-header">
+            <h3>Milestones <span style="font-weight:400;font-size:0.875rem;color:var(--text-light)">(optional)</span></h3>
+            <button type="button" class="btn btn-ghost btn-sm" onclick="addMilestone()" style="color:var(--primary);">
+              <i class="ph ph-plus"></i> Add Step
+            </button>
+          </div>
+          <div class="card-body">
+
+            <p style="font-size:0.8125rem;color:var(--text-muted);margin-bottom:1rem;">
+              Break your goal into smaller steps to track progress more clearly.
+            </p>
+
+            <div class="milestone-list" id="milestoneList">
+
+              <div class="milestone-item">
+                <i class="ph ph-dots-six-vertical milestone-drag"></i>
+                <input type="text" class="form-control" placeholder="Step 1 — e.g. Shortlist 20 companies to apply to" value="Shortlist 20 target companies">
+                <button type="button" class="btn-icon remove-btn" onclick="removeMilestone(this)" title="Remove">
+                  <i class="ph ph-x"></i>
+                </button>
+              </div>
+
+              <div class="milestone-item">
+                <i class="ph ph-dots-six-vertical milestone-drag"></i>
+                <input type="text" class="form-control" placeholder="Step 2" value="Tailor resume for each role">
+                <button type="button" class="btn-icon remove-btn" onclick="removeMilestone(this)" title="Remove">
+                  <i class="ph ph-x"></i>
+                </button>
+              </div>
+
+              <div class="milestone-item">
+                <i class="ph ph-dots-six-vertical milestone-drag"></i>
+                <input type="text" class="form-control" placeholder="Step 3" value="Submit 10 applications before Feb 28">
+                <button type="button" class="btn-icon remove-btn" onclick="removeMilestone(this)" title="Remove">
+                  <i class="ph ph-x"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <button type="button" class="btn btn-ghost btn-sm" onclick="addMilestone()" style="color:var(--primary);margin-top:0.25rem;">
+              <i class="ph ph-plus-circle"></i> Add another step
+            </button>
+
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div style="display:flex;gap:0.75rem;align-items:center;">
+          <button type="submit" class="btn btn-primary btn-lg">
+            <i class="ph ph-flag-checkered"></i> Save Goal
+          </button>
+          <a href="career-tracker.html" class="btn btn-ghost btn-lg">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <script>
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    // Set default target date to 30 days from now
+    const d = new Date();
+    d.setDate(d.getDate() + 30);
+    document.getElementById('targetDate').value = d.toISOString().split('T')[0];
+
+    function selectType(card) {
+      document.querySelectorAll('.goal-type-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+    }
+
+    let milestoneCount = 3;
+    function addMilestone() {
+      milestoneCount++;
+      const list = document.getElementById('milestoneList');
+      const item = document.createElement('div');
+      item.className = 'milestone-item';
+      item.innerHTML = `
+        <i class="ph ph-dots-six-vertical milestone-drag"></i>
+        <input type="text" class="form-control" placeholder="Step ${milestoneCount}">
+        <button type="button" class="btn-icon remove-btn" onclick="removeMilestone(this)" title="Remove">
+          <i class="ph ph-x"></i>
+        </button>`;
+      list.appendChild(item);
+      item.querySelector('input').focus();
+    }
+
+    function removeMilestone(btn) {
+      btn.closest('.milestone-item').remove();
+    }
+
+    function saveGoal(e) {
+      e.preventDefault();
+      const title = document.getElementById('goalTitle').value.trim();
+      if (!title) return;
+      // In production this would POST to an API
+      window.location.href = 'career-tracker.html';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,208 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - AI Career Copilot</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="dashboard.html" class="navbar-brand">
-                <i class="ph ph-compass-tool"></i>
-                Career Copilot
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="dashboard.html" class="nav-link active">
-                        <i class="ph ph-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="resume-studio.html" class="nav-link">
-                        <i class="ph ph-file-text"></i>
-                        <span>Resume</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="opportunities.html" class="nav-link">
-                        <i class="ph ph-briefcase"></i>
-                        <span>Opportunities</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="interview-prep.html" class="nav-link">
-                        <i class="ph ph-microphone-stage"></i>
-                        <span>Interview Prep</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="career-tracker.html" class="nav-link">
-                        <i class="ph ph-chart-line-up"></i>
-                        <span>Tracker</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-profile">
-                <a href="profile.html" class="profile-link">
-                    <img src="https://ui-avatars.com/api/?name=Student&background=0a66c2&color=fff&rounded=true" alt="Profile">
-                    <span class="profile-text">Me ▼</span>
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link active">
+            <i class="ph-fill ph-house"></i><span>Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="opportunities.html" class="nav-link">
+            <i class="ph ph-briefcase"></i><span>Internships</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="interview-prep.html" class="nav-link">
+            <i class="ph ph-microphone-stage"></i><span>Mock Interview</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="career-tracker.html" class="nav-link">
+            <i class="ph ph-chart-line-up"></i><span>My Growth</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="resume-studio.html" class="nav-link">
+            <i class="ph ph-magic-wand"></i><span>Resume Studio</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown" id="profileDropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+              <div class="dd-info">
+                <h4>Jane Smith</h4>
+                <p>CS Junior · MIT</p>
+              </div>
+            </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item">
+                <i class="ph ph-user-circle"></i> View Profile
+              </a>
+              <a href="profile.html#password" class="dd-item">
+                <i class="ph ph-lock-key"></i> Change Password
+              </a>
+              <a href="profile.html" class="dd-item">
+                <i class="ph ph-bell"></i> Notifications
+              </a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger">
+                <i class="ph ph-sign-out"></i> Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="main-container">
+
+    <!-- Welcome Banner -->
+    <div class="card welcome-banner">
+      <div>
+        <h2>Welcome back, Jane! 👋</h2>
+        <p>You're 70% of the way to being interview-ready. Keep up the great work!</p>
+      </div>
+      <div class="welcome-progress">
+        <div class="progress-header">
+          <span>Profile Readiness</span>
+          <span>70%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill pf-white" style="width:70%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="dashboard-grid">
+
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <!-- Resume Upload / Score card (toggle) -->
+        <div class="card" style="margin-bottom:1.5rem;">
+
+          <!-- State A: Upload zone (default) -->
+          <div id="upload-state" class="card-body" style="padding:0">
+            <div class="upload-zone" id="dropZone" onclick="document.getElementById('resumeFile').click()">
+              <i class="ph ph-cloud-arrow-up"></i>
+              <h3>Upload your resume</h3>
+              <p>Drag &amp; drop your file here or <strong>browse to upload</strong></p>
+              <span class="upload-hint">Supported: PDF, DOCX — Max 5 MB</span>
+              <input type="file" id="resumeFile" hidden accept=".pdf,.docx">
+            </div>
+          </div>
+
+          <!-- State B: Resume score (shown after upload) -->
+          <div id="score-state" class="hidden">
+            <div class="card-header">
+              <h3>Resume Analysis</h3>
+              <span class="badge badge-success"><i class="ph ph-check-circle"></i> resume_jane.pdf</span>
+            </div>
+            <div class="resume-score">
+              <div class="score-top">
+                <div class="score-circle">
+                  <span class="score-num">78</span>
+                  <span class="score-denom">/ 100</span>
+                </div>
+                <div class="score-breakdown">
+                  <div class="score-row">
+                    <span class="score-row-label">Keywords</span>
+                    <div class="score-bar-track"><div class="score-bar-fill sbf-warning" style="width:68%"></div></div>
+                    <span class="score-pct">68%</span>
+                  </div>
+                  <div class="score-row">
+                    <span class="score-row-label">Skills Match</span>
+                    <div class="score-bar-track"><div class="score-bar-fill sbf-success" style="width:85%"></div></div>
+                    <span class="score-pct">85%</span>
+                  </div>
+                  <div class="score-row">
+                    <span class="score-row-label">Experience</span>
+                    <div class="score-bar-track"><div class="score-bar-fill sbf-primary" style="width:72%"></div></div>
+                    <span class="score-pct">72%</span>
+                  </div>
+                  <div class="score-row">
+                    <span class="score-row-label">Formatting</span>
+                    <div class="score-bar-track"><div class="score-bar-fill sbf-success" style="width:90%"></div></div>
+                    <span class="score-pct">90%</span>
+                  </div>
+                </div>
+              </div>
+              <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+                <a href="resume-studio.html" class="btn btn-primary btn-sm">
+                  <i class="ph ph-magic-wand"></i> View Full Analysis
                 </a>
+                <button onclick="resetUpload()" class="btn btn-ghost btn-sm">
+                  <i class="ph ph-arrow-counter-clockwise"></i> Re-upload
+                </button>
+              </div>
             </div>
-        </div>
-    </nav>
+          </div>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        
-        <!-- Welcome Banner (Full Width) -->
-        <div class="card welcome-banner">
-            <div class="welcome-text">
-                <h2>Welcome back, Jane! 👋</h2>
-                <p>You're 70% of the way to being interview-ready. Keep up the great work!</p>
-            </div>
-            <div class="welcome-progress">
-                <div class="progress-labels">
-                    <span>Profile Readiness</span>
-                    <span>70%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" style="width: 70%;"></div>
-                </div>
-            </div>
         </div>
 
-        <div class="dashboard-bento-grid">
-            
-            <!-- Main Column (Left) -->
-            <div class="bento-main">
-                
-                <!-- Smart Upload Zone -->
-                <div class="card upload-card">
-                    <div class="upload-zone" id="drop-zone" onclick="document.getElementById('resume-upload').click()">
-                        <i class="ph ph-cloud-arrow-up"></i>
-                        <h3>Upload your resume</h3>
-                        <p>Drag & drop your file here or <strong>browse</strong></p>
-                        <span class="file-limits">Supported: PDF, DOCX (Max 5MB)</span>
-                        <input type="file" id="resume-upload" hidden accept=".pdf,.docx">
-                    </div>
-                </div>
+        <!-- AI Next Steps -->
+        <div class="card next-steps">
+          <h3>AI Recommended Next Steps</h3>
 
-                <!-- AI Next Steps -->
-                <div class="card next-steps-card">
-                    <h3>AI Recommended Next Steps</h3>
-                    <div class="next-step-item">
-                        <div class="step-icon">
-                            <i class="ph ph-microphone-stage text-primary"></i>
-                        </div>
-                        <div class="step-content">
-                            <h4>Practice Behavioral Interview</h4>
-                            <p>Your resume is strong in technical skills. Practice communicating your soft skills.</p>
-                        </div>
-                        <a href="interview-prep.html" class="btn btn-outline btn-sm">Start Mock</a>
-                    </div>
-                    
-                    <div class="next-step-item">
-                        <div class="step-icon">
-                            <i class="ph ph-magnifying-glass-plus text-primary"></i>
-                        </div>
-                        <div class="step-content">
-                            <h4>Review Matched Roles</h4>
-                            <p>We found 3 new Software Engineering Intern roles matching your updated resume.</p>
-                        </div>
-                        <a href="opportunities.html" class="btn btn-outline btn-sm">View Roles</a>
-                    </div>
-                </div>
-
+          <div class="step-item">
+            <div class="step-icon"><i class="ph ph-microphone-stage"></i></div>
+            <div class="step-body">
+              <h4>Practice Behavioral Interview</h4>
+              <p>Your technical skills are strong — now work on communicating your impact using STAR method.</p>
             </div>
+            <a href="interview-prep.html" class="btn btn-outline btn-sm" style="white-space:nowrap;flex-shrink:0">Start Mock</a>
+          </div>
 
-            <!-- Secondary Column (Right) -->
-            <div class="bento-sidebar">
-                
-                <!-- Pipeline Summary -->
-                <div class="card pipeline-card">
-                    <h3>Application Pipeline</h3>
-                    <div class="pipeline-stats">
-                        <div class="pipe-stat">
-                            <span class="pipe-num">4</span>
-                            <span class="pipe-label">Saved</span>
-                        </div>
-                        <div class="pipe-stat">
-                            <span class="pipe-num">2</span>
-                            <span class="pipe-label">Applied</span>
-                        </div>
-                        <div class="pipe-stat">
-                            <span class="pipe-num">0</span>
-                            <span class="pipe-label">Interviews</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Top Matches -->
-                <div class="card recommendations-card">
-                    <h3>Top Internship Matches</h3>
-                    <ul class="match-list">
-                        <li>
-                            <i class="ph ph-google-logo"></i>
-                            <div class="match-info">
-                                <h4>Software Engineering Intern</h4>
-                                <p>Google • Mountain View, CA</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="ph ph-apple-logo"></i>
-                            <div class="match-info">
-                                <h4>Frontend Developer Intern</h4>
-                                <p>Apple • Cupertino, CA</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="ph ph-microsoft-logo"></i>
-                            <div class="match-info">
-                                <h4>PM Intern</h4>
-                                <p>Microsoft • Seattle, WA</p>
-                            </div>
-                        </li>
-                    </ul>
-                    <a href="opportunities.html" class="view-all-link">View all matches <i class="ph ph-arrow-right"></i></a>
-                </div>
-
+          <div class="step-item">
+            <div class="step-icon"><i class="ph ph-magnifying-glass-plus"></i></div>
+            <div class="step-body">
+              <h4>Review 3 New Matched Roles</h4>
+              <p>We found Software Engineering Intern roles at Google, Meta, and Stripe that match your profile.</p>
             </div>
+            <a href="opportunities.html" class="btn btn-outline btn-sm" style="white-space:nowrap;flex-shrink:0">View Roles</a>
+          </div>
+
+          <div class="step-item">
+            <div class="step-icon"><i class="ph ph-magic-wand"></i></div>
+            <div class="step-body">
+              <h4>Tailor Resume for Google SWE</h4>
+              <p>Add missing keywords like "Kubernetes" and "distributed systems" to boost your match to 91%.</p>
+            </div>
+            <a href="resume-studio.html" class="btn btn-outline btn-sm" style="white-space:nowrap;flex-shrink:0">Tailor Now</a>
+          </div>
         </div>
-    </main>
 
-    <script>
-        // Simple drag and drop styling
-        const dropZone = document.getElementById('drop-zone');
-        
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('dragover');
-        });
-        
-        dropZone.addEventListener('dragleave', () => {
-            dropZone.classList.remove('dragover');
-        });
-        
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('dragover');
-            if(e.dataTransfer.files.length) {
-                alert('File ready to upload: ' + e.dataTransfer.files[0].name);
-            }
-        });
+      </div>
 
-        document.getElementById('resume-upload').addEventListener('change', (e) => {
-            if(e.target.files.length) {
-                alert('File selected: ' + e.target.files[0].name);
-            }
-        });
-    </script>
+      <!-- RIGHT SIDEBAR -->
+      <div>
+
+        <!-- Application Pipeline -->
+        <div class="card" style="margin-bottom:1.5rem;">
+          <div class="card-header"><h3>Application Pipeline</h3></div>
+          <div class="pipeline-stats">
+            <div class="pipe-stat">
+              <span class="pipe-num">4</span>
+              <span class="pipe-label">Saved</span>
+            </div>
+            <div class="pipe-stat">
+              <span class="pipe-num">2</span>
+              <span class="pipe-label">Applied</span>
+            </div>
+            <div class="pipe-stat">
+              <span class="pipe-num">1</span>
+              <span class="pipe-label">Interview</span>
+            </div>
+            <div class="pipe-stat">
+              <span class="pipe-num">0</span>
+              <span class="pipe-label">Offer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Internship Matches -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Top Matches For You</h3>
+            <span class="badge badge-primary">12 new</span>
+          </div>
+
+          <a href="internship-detail.html" class="match-list-item">
+            <div class="match-company-icon" style="color:#4285f4"><i class="ph-fill ph-google-logo"></i></div>
+            <div class="match-info">
+              <h4>Software Engineering Intern</h4>
+              <p>Google · Mountain View, CA</p>
+            </div>
+            <span class="match-badge match-high">95%</span>
+          </a>
+
+          <a href="internship-detail.html" class="match-list-item">
+            <div class="match-company-icon" style="color:#0f62fe"><i class="ph-fill ph-microsoft-teams-logo"></i></div>
+            <div class="match-info">
+              <h4>PM Intern</h4>
+              <p>Microsoft · Seattle, WA</p>
+            </div>
+            <span class="match-badge match-mid">88%</span>
+          </a>
+
+          <a href="internship-detail.html" class="match-list-item">
+            <div class="match-company-icon" style="color:#1877f2"><i class="ph-fill ph-meta-logo"></i></div>
+            <div class="match-info">
+              <h4>Data Science Intern</h4>
+              <p>Meta · Menlo Park, CA</p>
+            </div>
+            <span class="match-badge match-mid">82%</span>
+          </a>
+
+          <a href="opportunities.html" class="card-view-all">
+            View all 12 matches <i class="ph ph-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Profile dropdown toggle
+    const menu    = document.getElementById('profileMenu');
+    const trigger = document.getElementById('profileTrigger');
+    trigger.addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    // Upload zone drag & drop
+    const dropZone   = document.getElementById('dropZone');
+    const fileInput  = document.getElementById('resumeFile');
+    const uploadState = document.getElementById('upload-state');
+    const scoreState  = document.getElementById('score-state');
+
+    function showScore() {
+      uploadState.classList.add('hidden');
+      scoreState.classList.remove('hidden');
+    }
+
+    function resetUpload() {
+      scoreState.classList.add('hidden');
+      uploadState.classList.remove('hidden');
+    }
+
+    dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      if (e.dataTransfer.files.length) showScore();
+    });
+    fileInput.addEventListener('change', e => { if (e.target.files.length) showScore(); });
+  </script>
 
 </body>
 </html>

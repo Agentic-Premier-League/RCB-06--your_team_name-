@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Review — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"     class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html"  class="nav-link"><i class="ph ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link active"><i class="ph-fill ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link"><i class="ph ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link"><i class="ph ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
+            </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-container">
+
+    <!-- Breadcrumb -->
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;font-size:0.875rem;color:var(--text-muted);">
+      <a href="interview-prep.html" style="color:var(--text-muted);display:flex;align-items:center;gap:0.25rem;">
+        <i class="ph ph-arrow-left"></i> Back to Mock Interview
+      </a>
+    </div>
+
+    <!-- Score banner -->
+    <div class="card review-score-banner" style="border:none;">
+      <div class="review-score-circle">
+        <span class="review-score-num">82</span>
+        <span class="review-score-denom">/ 100</span>
+      </div>
+      <div class="review-meta">
+        <h2>Behavioral Interview — Google SWE Intern</h2>
+        <p>Completed Jan 15, 2025 · 30 min · 6 questions answered</p>
+        <div class="review-stats">
+          <div class="review-stat">
+            <div class="review-stat-val">6</div>
+            <div class="review-stat-label">Questions</div>
+          </div>
+          <div class="review-stat">
+            <div class="review-stat-val">147</div>
+            <div class="review-stat-label">Avg words</div>
+          </div>
+          <div class="review-stat">
+            <div class="review-stat-val">28m</div>
+            <div class="review-stat-label">Time taken</div>
+          </div>
+          <div class="review-stat">
+            <div class="review-stat-val">+11</div>
+            <div class="review-stat-label">vs last session</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;flex-shrink:0;">
+        <a href="interview-session.html" class="btn btn-primary" style="background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.4);color:white;">
+          <i class="ph ph-arrow-counter-clockwise"></i> Practice Again
+        </a>
+        <button class="btn" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:white;" onclick="window.print()">
+          <i class="ph ph-download-simple"></i> Export Report
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" style="margin-bottom:1.5rem;">
+      <button class="tab-btn active" onclick="switchTab(this,'overview')">Overview</button>
+      <button class="tab-btn"        onclick="switchTab(this,'qa')">Q&amp;A Breakdown</button>
+    </div>
+
+    <!-- ── OVERVIEW TAB ── -->
+    <div id="tab-overview">
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem;margin-bottom:1.5rem;">
+
+        <!-- Strengths -->
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color:var(--success);"><i class="ph ph-thumbs-up"></i> &nbsp;Strengths</h3>
+          </div>
+          <div class="card-body" style="padding-top:1rem;padding-bottom:1rem;">
+            <div class="insight-item">
+              <i class="ph-fill ph-check-circle" style="color:var(--success);"></i>
+              <p><strong>Clear structure:</strong> You consistently used the STAR format, making your answers easy to follow and logically complete.</p>
+            </div>
+            <div class="insight-item">
+              <i class="ph-fill ph-check-circle" style="color:var(--success);"></i>
+              <p><strong>Quantified results:</strong> 4 of 6 answers included specific metrics (e.g. "reduced load time by 40%"), which is excellent.</p>
+            </div>
+            <div class="insight-item">
+              <i class="ph-fill ph-check-circle" style="color:var(--success);"></i>
+              <p><strong>Ownership language:</strong> You used "I" statements effectively without minimising your team's contribution.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Areas to Improve -->
+        <div class="card">
+          <div class="card-header">
+            <h3 style="color:var(--warning);"><i class="ph ph-warning"></i> &nbsp;Areas to Improve</h3>
+          </div>
+          <div class="card-body" style="padding-top:1rem;padding-bottom:1rem;">
+            <div class="insight-item">
+              <i class="ph-fill ph-arrow-circle-up" style="color:var(--warning);"></i>
+              <p><strong>Answer length:</strong> Q3 and Q5 were under 80 words — too brief. Aim for 150–200 words per answer to give sufficient detail.</p>
+            </div>
+            <div class="insight-item">
+              <i class="ph-fill ph-arrow-circle-up" style="color:var(--warning);"></i>
+              <p><strong>Stakeholder context:</strong> Mention who was affected by your decisions — this shows business awareness interviewers value.</p>
+            </div>
+            <div class="insight-item">
+              <i class="ph-fill ph-arrow-circle-up" style="color:var(--warning);"></i>
+              <p><strong>Reflection:</strong> Close answers with a brief "what I learned" — it demonstrates growth mindset and self-awareness.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Score by category -->
+      <div class="card">
+        <div class="card-header"><h3>Score by Category</h3></div>
+        <div class="card-body">
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.25rem;">
+
+            <div style="text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-md);">
+              <div style="font-size:1.75rem;font-weight:800;color:var(--success);">91</div>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;">Structure &amp; Clarity</div>
+              <div class="progress-track"><div class="progress-fill pf-success" style="width:91%"></div></div>
+            </div>
+
+            <div style="text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-md);">
+              <div style="font-size:1.75rem;font-weight:800;color:var(--primary);">85</div>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;">Specificity</div>
+              <div class="progress-track"><div class="progress-fill pf-primary" style="width:85%"></div></div>
+            </div>
+
+            <div style="text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-md);">
+              <div style="font-size:1.75rem;font-weight:800;color:var(--primary);">78</div>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;">Depth &amp; Insight</div>
+              <div class="progress-track"><div class="progress-fill pf-primary" style="width:78%"></div></div>
+            </div>
+
+            <div style="text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-md);">
+              <div style="font-size:1.75rem;font-weight:800;color:var(--warning);">68</div>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;">Answer Length</div>
+              <div class="progress-track"><div class="progress-fill pf-warning" style="width:68%"></div></div>
+            </div>
+
+            <div style="text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-md);">
+              <div style="font-size:1.75rem;font-weight:800;color:var(--success);">88</div>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;">Leadership Signal</div>
+              <div class="progress-track"><div class="progress-fill pf-success" style="width:88%"></div></div>
+            </div>
+
+            <div style="text-align:center;padding:1rem;background:var(--bg);border-radius:var(--r-md);">
+              <div style="font-size:1.75rem;font-weight:800;color:var(--warning);">72</div>
+              <div style="font-size:0.8125rem;font-weight:600;color:var(--text);margin-bottom:0.25rem;">Reflection</div>
+              <div class="progress-track"><div class="progress-fill pf-warning" style="width:72%"></div></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Q&A BREAKDOWN TAB ── -->
+    <div id="tab-qa" class="hidden">
+
+      <!-- Q1 -->
+      <div class="qa-item">
+        <div class="qa-question">
+          <div class="qa-question-label">Question 1 · Growth &amp; Learning</div>
+          <p class="qa-question-text">Describe a project where you had to learn a new technology very quickly. What was the technology, how did you approach learning it, and what was the result?</p>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-label">Your Answer</div>
+          <p class="qa-answer-text">During my sophomore year project, I had to pick up React in 3 days for a hackathon. I started by going through the official docs, then built a mini todo-app to solidify the concepts. Our team won second place, and I've continued using React since. The key was breaking it into small pieces rather than trying to learn everything at once.</p>
+        </div>
+        <div class="qa-feedback-row">
+          <div class="qa-feedback-score">
+            <div class="session-score sc-green">88</div>
+            <div class="qa-feedback-label">Score</div>
+          </div>
+          <div class="qa-feedback-text">
+            <h4><i class="ph ph-robot"></i> AI Feedback</h4>
+            <p>Strong answer — clear structure and a concrete outcome (2nd place). To push to 95+, quantify the timeline more explicitly ("learned React in 72 hours before our 48-hour hackathon") and add one sentence on what you'd do differently. The "small pieces" insight shows good meta-learning awareness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="qa-item">
+        <div class="qa-question">
+          <div class="qa-question-label">Question 2 · Leadership &amp; Teamwork</div>
+          <p class="qa-question-text">Tell me about a time you had to lead a team through a challenging technical project. What was your role, what obstacles did you face, and what was the outcome?</p>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-label">Your Answer</div>
+          <p class="qa-answer-text">I led a 4-person team for our OS course project — building a basic file system in C. Two weeks in, one teammate dropped the course and we lost 25% of our capacity. I reorganised tasks, took on the inode implementation myself, and held daily 20-min standups to keep everyone unblocked. We delivered on time with a fully functional ext2-compatible layer and scored 94/100.</p>
+        </div>
+        <div class="qa-feedback-row">
+          <div class="qa-feedback-score">
+            <div class="session-score sc-green">92</div>
+            <div class="qa-feedback-label">Score</div>
+          </div>
+          <div class="qa-feedback-text">
+            <h4><i class="ph ph-robot"></i> AI Feedback</h4>
+            <p>Excellent — this is a near-perfect behavioral answer. You identified the problem (teammate dropout), took decisive action (reorganisation + daily standups), and had a strong quantified result (94/100). One improvement: briefly mention the human element — how did your teammates feel during the crunch? This shows emotional intelligence.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="qa-item">
+        <div class="qa-question">
+          <div class="qa-question-label">Question 3 · Communication</div>
+          <p class="qa-question-text">Give an example of a time you disagreed with a teammate or manager. How did you handle the disagreement and what was the result?</p>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-label">Your Answer</div>
+          <p class="qa-answer-text">My project partner wanted to use NoSQL for everything. I thought SQL was better for our structured data. We debated it and eventually agreed to use PostgreSQL. It worked well.</p>
+        </div>
+        <div class="qa-feedback-row">
+          <div class="qa-feedback-score">
+            <div class="session-score sc-yellow">61</div>
+            <div class="qa-feedback-label">Score</div>
+          </div>
+          <div class="qa-feedback-text">
+            <h4><i class="ph ph-robot"></i> AI Feedback</h4>
+            <p>This answer is too brief (only 42 words) and lacks depth. Missing: <strong>how</strong> you made your case (data? benchmarks?), what the disagreement felt like interpersonally, and what you learned about handling conflict. Rebuild it: expand the "Action" — did you run a proof of concept? Present benchmarks? How did you keep the relationship positive?</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    function switchTab(btn, tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-overview').classList.toggle('hidden', tab !== 'overview');
+      document.getElementById('tab-qa').classList.toggle('hidden', tab !== 'qa');
+    }
+  </script>
+
+</body>
+</html>
