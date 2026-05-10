@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="onboarding-page">
+
+    <!-- Header -->
+    <div class="onboarding-header">
+      <a href="index.html" class="navbar-brand" style="font-size:1.125rem;">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <a href="dashboard.html" style="font-size:0.875rem;color:var(--text-muted);">
+        Skip setup <i class="ph ph-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Body -->
+    <div class="onboarding-body">
+
+      <!-- Step indicators -->
+      <div class="onboarding-steps" id="stepIndicators">
+        <!-- rendered by JS -->
+      </div>
+
+      <!-- Card -->
+      <div class="onboarding-card">
+
+        <!-- ── Step 1: Personal Info ── -->
+        <div class="ob-step-view active" id="step-1">
+          <div class="ob-card-header">
+            <h2>Welcome! Let's set up your profile</h2>
+            <p>This helps us personalise your internship matches and interview prep.</p>
+          </div>
+          <div class="ob-card-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name <span style="color:var(--danger)">*</span></label>
+                <input type="text" class="form-control" id="ob-fname" placeholder="Jane" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name <span style="color:var(--danger)">*</span></label>
+                <input type="text" class="form-control" id="ob-lname" placeholder="Smith" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">University <span style="color:var(--danger)">*</span></label>
+              <input type="text" class="form-control" id="ob-university" placeholder="e.g. MIT, Stanford, UC Berkeley" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Major <span style="color:var(--danger)">*</span></label>
+                <input type="text" class="form-control" placeholder="e.g. Computer Science" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Graduation Year <span style="color:var(--danger)">*</span></label>
+                <select class="form-control" required>
+                  <option value="">Select year</option>
+                  <option>2025</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>2028</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Current GPA <span style="font-weight:400;color:var(--text-light)">(optional)</span></label>
+              <input type="text" class="form-control" placeholder="e.g. 3.8 / 4.0">
+              <span class="form-hint">Some internships have minimum GPA requirements. This stays private.</span>
+            </div>
+          </div>
+          <div class="ob-card-footer">
+            <span style="font-size:0.8125rem;color:var(--text-light);">Step 1 of 4</span>
+            <button class="btn btn-primary" onclick="goStep(2)">
+              Continue <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Step 2: Career Goals ── -->
+        <div class="ob-step-view" id="step-2">
+          <div class="ob-card-header">
+            <h2>What are you looking for?</h2>
+            <p>Tell us your target roles so we can surface the best matches for you.</p>
+          </div>
+          <div class="ob-card-body">
+
+            <div class="form-group">
+              <label class="form-label">Target Role(s) <span style="color:var(--danger)">*</span></label>
+              <input type="text" class="form-control" placeholder="e.g. Software Engineering Intern, PM Intern" required>
+              <span class="form-hint">Comma-separated if you're open to multiple roles</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preferred Locations</label>
+              <div style="display:flex;flex-wrap:wrap;gap:0.625rem;margin-top:0.5rem;" id="locationTags">
+                <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-pill);cursor:pointer;font-size:0.875rem;transition:var(--t);" id="loc-remote">
+                  <input type="checkbox" style="accent-color:var(--primary);" onchange="styleLocTag(this,'loc-remote')"> Remote
+                </label>
+                <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-pill);cursor:pointer;font-size:0.875rem;transition:var(--t);" id="loc-sf">
+                  <input type="checkbox" style="accent-color:var(--primary);" onchange="styleLocTag(this,'loc-sf')"> Bay Area
+                </label>
+                <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-pill);cursor:pointer;font-size:0.875rem;transition:var(--t);" id="loc-sea">
+                  <input type="checkbox" style="accent-color:var(--primary);" onchange="styleLocTag(this,'loc-sea')"> Seattle
+                </label>
+                <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-pill);cursor:pointer;font-size:0.875rem;transition:var(--t);" id="loc-nyc">
+                  <input type="checkbox" style="accent-color:var(--primary);" onchange="styleLocTag(this,'loc-nyc')"> New York
+                </label>
+                <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-pill);cursor:pointer;font-size:0.875rem;transition:var(--t);" id="loc-aus">
+                  <input type="checkbox" style="accent-color:var(--primary);" onchange="styleLocTag(this,'loc-aus')"> Austin
+                </label>
+                <label style="display:flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-pill);cursor:pointer;font-size:0.875rem;transition:var(--t);" id="loc-any">
+                  <input type="checkbox" style="accent-color:var(--primary);" onchange="styleLocTag(this,'loc-any')"> Anywhere
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Top Skills &amp; Technologies</label>
+              <input type="text" class="form-control" placeholder="e.g. Python, React, Machine Learning, SQL">
+              <span class="form-hint">We'll use these to calculate your match score with internship roles</span>
+            </div>
+
+          </div>
+          <div class="ob-card-footer">
+            <button class="btn btn-ghost" onclick="goStep(1)">
+              <i class="ph ph-arrow-left"></i> Back
+            </button>
+            <button class="btn btn-primary" onclick="goStep(3)">
+              Continue <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Step 3: Upload Resume ── -->
+        <div class="ob-step-view" id="step-3">
+          <div class="ob-card-header">
+            <h2>Upload your resume</h2>
+            <p>Our AI will analyse your resume to calculate skill scores and generate your first internship matches.</p>
+          </div>
+          <div class="ob-card-body">
+
+            <!-- Upload zone -->
+            <div id="ob-upload-zone">
+              <div class="upload-zone" style="padding:2.5rem 2rem;" onclick="document.getElementById('ob-file').click()">
+                <i class="ph ph-cloud-arrow-up"></i>
+                <h3>Drop your resume here</h3>
+                <p>or <strong>browse to upload</strong></p>
+                <span class="upload-hint">PDF or DOCX · Max 5 MB</span>
+                <input type="file" id="ob-file" hidden accept=".pdf,.docx" onchange="resumeUploaded(this)">
+              </div>
+            </div>
+
+            <!-- Uploaded confirmation (hidden by default) -->
+            <div id="ob-uploaded" class="hidden">
+              <div class="file-uploaded" style="margin-bottom:1rem;">
+                <i class="ph-fill ph-file-pdf"></i>
+                <div class="file-uploaded-info">
+                  <h4 id="ob-filename">resume.pdf</h4>
+                  <p>Ready to analyse</p>
+                </div>
+              </div>
+
+              <!-- Simulated analysis progress -->
+              <div id="ob-analysis" style="background:var(--bg);border-radius:var(--r-md);padding:1.25rem;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+                  <span style="font-size:0.875rem;font-weight:600;">AI Analysing your resume…</span>
+                  <span id="ob-pct" style="font-size:0.875rem;font-weight:700;color:var(--primary);">0%</span>
+                </div>
+                <div class="progress-track" style="height:10px;">
+                  <div class="progress-fill pf-primary" id="ob-prog" style="width:0%;transition:width 0.4s ease;"></div>
+                </div>
+                <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:1rem;" id="ob-analysis-steps">
+                  <span class="badge badge-neutral" id="as-1">Parsing text…</span>
+                  <span class="badge badge-neutral" id="as-2">Extracting skills…</span>
+                  <span class="badge badge-neutral" id="as-3">Scoring sections…</span>
+                  <span class="badge badge-neutral" id="as-4">Matching roles…</span>
+                </div>
+              </div>
+
+              <!-- Score preview (shown after analysis) -->
+              <div id="ob-score-preview" class="hidden" style="margin-top:1rem;padding:1rem;background:var(--primary-light);border-radius:var(--r-md);border:1px solid var(--border);display:flex;align-items:center;gap:1.25rem;">
+                <div class="score-circle" style="width:72px;height:72px;border-width:4px;">
+                  <span class="score-num" style="font-size:1.375rem;">78</span>
+                  <span class="score-denom">/ 100</span>
+                </div>
+                <div>
+                  <div style="font-size:0.9375rem;font-weight:700;color:var(--primary);">Resume Score: 78 / 100</div>
+                  <div style="font-size:0.8125rem;color:var(--primary);opacity:0.8;margin-top:0.25rem;">12 internship matches found · Full analysis on your dashboard</div>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top:1.25rem;margin-bottom:0;font-size:0.8125rem;color:var(--text-light);text-align:center;">
+              Don't have your resume ready?
+              <a href="#" onclick="goStep(4);return false;">Skip this step</a>
+            </p>
+
+          </div>
+          <div class="ob-card-footer">
+            <button class="btn btn-ghost" onclick="goStep(2)">
+              <i class="ph ph-arrow-left"></i> Back
+            </button>
+            <button class="btn btn-primary" id="ob-step3-next" onclick="goStep(4)">
+              Continue <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Step 4: First Goal ── -->
+        <div class="ob-step-view" id="step-4">
+          <div class="ob-card-header">
+            <h2>Set your first career goal</h2>
+            <p>Goals keep you accountable. You can always add more later from your Growth tracker.</p>
+          </div>
+          <div class="ob-card-body">
+
+            <p style="font-size:0.875rem;font-weight:600;color:var(--text-muted);margin-bottom:0.875rem;text-transform:uppercase;letter-spacing:0.04em;">Quick-pick a goal</p>
+
+            <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;" id="quickGoals">
+              <label class="quick-goal-option" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:2px solid var(--border);border-radius:var(--r-md);cursor:pointer;transition:var(--t);" id="qg-1">
+                <input type="radio" name="quickGoal" value="applications" style="accent-color:var(--primary);width:18px;height:18px;" onchange="styleQuickGoal('qg-1')">
+                <div>
+                  <div style="font-size:0.9375rem;font-weight:600;">Apply to 10 internships this season</div>
+                  <div style="font-size:0.8125rem;color:var(--text-muted);">Most popular · Deadline: Mar 31</div>
+                </div>
+                <i class="ph ph-paper-plane-tilt" style="font-size:1.375rem;color:var(--primary);margin-left:auto;flex-shrink:0;"></i>
+              </label>
+
+              <label class="quick-goal-option" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:2px solid var(--border);border-radius:var(--r-md);cursor:pointer;transition:var(--t);" id="qg-2">
+                <input type="radio" name="quickGoal" value="interviews" style="accent-color:var(--primary);width:18px;height:18px;" onchange="styleQuickGoal('qg-2')">
+                <div>
+                  <div style="font-size:0.9375rem;font-weight:600;">Complete 5 mock interviews</div>
+                  <div style="font-size:0.8125rem;color:var(--text-muted);">Build interview confidence</div>
+                </div>
+                <i class="ph ph-microphone-stage" style="font-size:1.375rem;color:var(--primary);margin-left:auto;flex-shrink:0;"></i>
+              </label>
+
+              <label class="quick-goal-option" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:2px solid var(--border);border-radius:var(--r-md);cursor:pointer;transition:var(--t);" id="qg-3">
+                <input type="radio" name="quickGoal" value="skills" style="accent-color:var(--primary);width:18px;height:18px;" onchange="styleQuickGoal('qg-3')">
+                <div>
+                  <div style="font-size:0.9375rem;font-weight:600;">Learn 2 new technical skills</div>
+                  <div style="font-size:0.8125rem;color:var(--text-muted);">Boost your resume match score</div>
+                </div>
+                <i class="ph ph-lightning" style="font-size:1.375rem;color:var(--primary);margin-left:auto;flex-shrink:0;"></i>
+              </label>
+            </div>
+
+            <div style="text-align:center;padding:0.75rem;border-top:1px solid var(--border);">
+              <a href="add-goal.html" style="font-size:0.875rem;">
+                <i class="ph ph-pencil-simple"></i> Create a custom goal instead
+              </a>
+            </div>
+
+          </div>
+          <div class="ob-card-footer">
+            <button class="btn btn-ghost" onclick="goStep(3)">
+              <i class="ph ph-arrow-left"></i> Back
+            </button>
+            <button class="btn btn-primary btn-lg" onclick="finish()">
+              <i class="ph ph-rocket-launch"></i> Go to Dashboard
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const stepLabels = ['Personal Info', 'Career Goals', 'Upload Resume', 'First Goal'];
+    let currentStep = 1;
+
+    function renderSteps(active) {
+      const el = document.getElementById('stepIndicators');
+      el.innerHTML = '';
+      stepLabels.forEach((label, i) => {
+        const n = i + 1;
+        const isDone   = n < active;
+        const isActive = n === active;
+
+        if (i > 0) {
+          const line = document.createElement('div');
+          line.className = 'ob-step-row';
+          line.innerHTML = `<div class="ob-line${isDone ? ' done' : ''}"></div>`;
+          el.appendChild(line);
+        }
+
+        const step = document.createElement('div');
+        step.className = 'ob-step';
+        step.innerHTML = `
+          <div class="ob-step-row">
+            <div class="ob-circle${isDone ? ' done' : isActive ? ' active' : ''}">
+              ${isDone ? '<i class="ph ph-check" style="font-size:0.875rem;"></i>' : n}
+            </div>
+          </div>
+          <span class="ob-label${isDone ? ' done' : isActive ? ' active' : ''}">${label}</span>`;
+        el.appendChild(step);
+      });
+    }
+
+    function goStep(n) {
+      document.getElementById(`step-${currentStep}`).classList.remove('active');
+      currentStep = n;
+      document.getElementById(`step-${currentStep}`).classList.add('active');
+      renderSteps(currentStep);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function finish() {
+      window.location.href = 'dashboard.html';
+    }
+
+    // Location pill styling
+    function styleLocTag(checkbox, id) {
+      const label = document.getElementById(id);
+      if (checkbox.checked) {
+        label.style.borderColor = 'var(--primary)';
+        label.style.background  = 'var(--primary-light)';
+        label.style.color       = 'var(--primary)';
+      } else {
+        label.style.borderColor = 'var(--border)';
+        label.style.background  = '';
+        label.style.color       = '';
+      }
+    }
+
+    // Quick-goal pill styling
+    function styleQuickGoal(id) {
+      document.querySelectorAll('.quick-goal-option').forEach(el => {
+        el.style.borderColor = 'var(--border)';
+        el.style.background  = '';
+      });
+      const el = document.getElementById(id);
+      el.style.borderColor = 'var(--primary)';
+      el.style.background  = 'var(--primary-light)';
+    }
+
+    // Resume upload + fake analysis
+    function resumeUploaded(input) {
+      if (!input.files.length) return;
+      document.getElementById('ob-filename').textContent = input.files[0].name;
+      document.getElementById('ob-upload-zone').classList.add('hidden');
+      document.getElementById('ob-uploaded').classList.remove('hidden');
+
+      // Animate analysis progress
+      const steps = ['as-1','as-2','as-3','as-4'];
+      const pcts  = [25, 55, 80, 100];
+      steps.forEach((id, i) => {
+        setTimeout(() => {
+          document.getElementById(id).className = 'badge badge-primary';
+          document.getElementById('ob-prog').style.width = pcts[i] + '%';
+          document.getElementById('ob-pct').textContent  = pcts[i] + '%';
+          if (i === steps.length - 1) {
+            setTimeout(() => {
+              document.getElementById('ob-analysis').style.display = 'none';
+              document.getElementById('ob-score-preview').classList.remove('hidden');
+            }, 500);
+          }
+        }, (i + 1) * 700);
+      });
+    }
+
+    // Init
+    renderSteps(1);
+  </script>
+
+</body>
+</html>

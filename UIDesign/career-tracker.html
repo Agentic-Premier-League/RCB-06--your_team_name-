@@ -1,71 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Tracker - AI Career Copilot</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Growth — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="dashboard.html" class="navbar-brand">
-                <i class="ph ph-compass-tool"></i>
-                Career Copilot
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="dashboard.html" class="nav-link">
-                        <i class="ph ph-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="resume-studio.html" class="nav-link">
-                        <i class="ph ph-file-text"></i>
-                        <span>Resume</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="opportunities.html" class="nav-link">
-                        <i class="ph ph-briefcase"></i>
-                        <span>Opportunities</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="interview-prep.html" class="nav-link">
-                        <i class="ph ph-microphone-stage"></i>
-                        <span>Interview Prep</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="career-tracker.html" class="nav-link active">
-                        <i class="ph ph-chart-line-up"></i>
-                        <span>Tracker</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-profile">
-                <a href="profile.html" class="profile-link">
-                    <img src="https://ui-avatars.com/api/?name=Student&background=0a66c2&color=fff&rounded=true" alt="Profile">
-                    <span class="profile-text">Me ▼</span>
-                </a>
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"     class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html"  class="nav-link"><i class="ph ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link"><i class="ph ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link active"><i class="ph-fill ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link"><i class="ph ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
             </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <a href="profile.html#password" class="dd-item"><i class="ph ph-lock-key"></i> Change Password</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        <div class="page-header">
-            <h1>Career Tracker</h1>
+  <!-- ── MAIN ── -->
+  <main class="main-container">
+
+    <div class="page-header">
+      <div>
+        <h1>My Career Growth</h1>
+        <p style="margin-top:0.25rem;color:var(--text-muted);font-size:0.9375rem;">Track your skills, milestones, and application progress over time.</p>
+      </div>
+      <a href="add-goal.html" class="btn btn-outline btn-sm"><i class="ph ph-plus"></i> Add Goal</a>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="ph ph-paper-plane-tilt"></i></div>
+        <div class="stat-value">12</div>
+        <div class="stat-label">Applications Sent</div>
+        <div class="stat-trend"><i class="ph ph-trend-up"></i> +4 this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:var(--success-bg);"><i class="ph ph-microphone-stage" style="color:var(--success)"></i></div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Interviews Completed</div>
+        <div class="stat-trend"><i class="ph ph-trend-up"></i> Avg score 72.7</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:var(--warning-bg);"><i class="ph ph-lightning" style="color:var(--warning)"></i></div>
+        <div class="stat-value">8</div>
+        <div class="stat-label">Skills Tracked</div>
+        <div class="stat-trend" style="color:var(--warning);"><i class="ph ph-plus"></i> 2 added recently</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="ph ph-user-circle-check"></i></div>
+        <div class="stat-value">78<span style="font-size:1.125rem;font-weight:500;color:var(--text-muted);">%</span></div>
+        <div class="stat-label">Profile Completeness</div>
+        <div class="stat-trend"><i class="ph ph-trend-up"></i> Up 12% this week</div>
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="tracker-grid">
+
+      <!-- LEFT: Skills + Goals -->
+      <div>
+
+        <!-- Skills Progress -->
+        <div class="card" style="margin-bottom:1.5rem;">
+          <div class="card-header">
+            <h3>Skills Progress</h3>
+            <button class="btn btn-ghost btn-sm" style="font-size:0.8125rem;">
+              <i class="ph ph-pencil-simple"></i> Edit Skills
+            </button>
+          </div>
+          <div class="card-body">
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Python</span>
+                <span class="skill-pct" style="color:var(--success)">90%</span>
+              </div>
+              <div class="skill-track"><div class="skill-bar sb-success" style="width:90%"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">React.js</span>
+                <span class="skill-pct">75%</span>
+              </div>
+              <div class="skill-track"><div class="skill-bar sb-primary" style="width:75%"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">System Design</span>
+                <span class="skill-pct" style="color:var(--warning)">55%</span>
+              </div>
+              <div class="skill-track"><div class="skill-bar sb-warning" style="width:55%"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Communication</span>
+                <span class="skill-pct" style="color:var(--success)">85%</span>
+              </div>
+              <div class="skill-track"><div class="skill-bar sb-success" style="width:85%"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">SQL &amp; Databases</span>
+                <span class="skill-pct">70%</span>
+              </div>
+              <div class="skill-track"><div class="skill-bar sb-primary" style="width:70%"></div></div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">Data Structures &amp; Algorithms</span>
+                <span class="skill-pct" style="color:var(--warning)">65%</span>
+              </div>
+              <div class="skill-track"><div class="skill-bar sb-warning" style="width:65%"></div></div>
+            </div>
+
+          </div>
+          <div class="card-footer">
+            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">
+              <i class="ph ph-info"></i>
+              Skill levels are estimated from your resume, mock interview scores, and self-assessment.
+            </p>
+          </div>
         </div>
-        <div class="content-card">
-            <p>Your application status and growth timeline will be here.</p>
+
+        <!-- Goals & Milestones -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Goals &amp; Milestones</h3>
+            <span class="badge badge-primary">2 / 5 complete</span>
+          </div>
+          <div class="card-body" style="padding-top:0.5rem;padding-bottom:0.5rem;">
+
+            <div class="goal-item">
+              <div class="goal-check done"><i class="ph ph-check"></i></div>
+              <div class="goal-text">
+                <h4 class="goal-done" style="text-decoration:line-through;color:var(--text-muted)">Upload and analyze resume</h4>
+                <p>Completed Jan 10, 2025</p>
+              </div>
+              <span class="badge badge-success" style="flex-shrink:0">Done</span>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-check done"><i class="ph ph-check"></i></div>
+              <div class="goal-text">
+                <h4 style="text-decoration:line-through;color:var(--text-muted)">Complete your profile (90%+)</h4>
+                <p>Completed Jan 12, 2025</p>
+              </div>
+              <span class="badge badge-success" style="flex-shrink:0">Done</span>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-check"></div>
+              <div class="goal-text">
+                <h4>Apply to 10 internships</h4>
+                <p>Progress: 6 of 10 applications submitted</p>
+              </div>
+              <div style="flex-shrink:0;text-align:right;">
+                <span style="font-size:0.875rem;font-weight:700;color:var(--primary)">6/10</span>
+                <div style="width:60px;margin-top:0.375rem;" class="progress-track" style="background:var(--bg)">
+                  <div class="progress-fill pf-primary" style="width:60%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-check"></div>
+              <div class="goal-text">
+                <h4>Complete 5 mock interviews</h4>
+                <p>Progress: 3 of 5 sessions completed</p>
+              </div>
+              <div style="flex-shrink:0;text-align:right;">
+                <span style="font-size:0.875rem;font-weight:700;color:var(--primary)">3/5</span>
+                <div style="width:60px;margin-top:0.375rem;" class="progress-track">
+                  <div class="progress-fill pf-primary" style="width:60%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="goal-item">
+              <div class="goal-check"></div>
+              <div class="goal-text">
+                <h4>Add 3 new technical skills</h4>
+                <p>Add Docker, Kubernetes, or TypeScript to your profile</p>
+              </div>
+              <span class="badge badge-neutral" style="flex-shrink:0">0/3</span>
+            </div>
+
+          </div>
         </div>
-    </main>
+
+      </div>
+
+      <!-- RIGHT: Timeline + Weekly activity -->
+      <div>
+
+        <!-- Activity Timeline -->
+        <div class="card" style="margin-bottom:1.5rem;">
+          <div class="card-header"><h3>Recent Activity</h3></div>
+          <div class="timeline" style="padding:1.5rem;">
+
+            <div class="timeline-item">
+              <div class="tl-dot"><i class="ph ph-paper-plane-tilt"></i></div>
+              <div class="tl-content">
+                <h4>Applied to Google SWE Intern</h4>
+                <p>Jan 16, 2025 · AI match score 95%</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot"><i class="ph ph-microphone-stage"></i></div>
+              <div class="tl-content">
+                <h4>Behavioral mock — scored 82/100</h4>
+                <p>Jan 15, 2025 · 30 min session</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot"><i class="ph ph-bookmark-simple"></i></div>
+              <div class="tl-content">
+                <h4>Saved Meta Data Science Intern</h4>
+                <p>Jan 14, 2025 · Added to shortlist</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot"><i class="ph ph-code"></i></div>
+              <div class="tl-content">
+                <h4>Technical mock — scored 71/100</h4>
+                <p>Jan 12, 2025 · 45 min session</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="tl-dot"><i class="ph ph-file-text"></i></div>
+              <div class="tl-content">
+                <h4>Resume uploaded &amp; analyzed</h4>
+                <p>Jan 10, 2025 · Score: 78/100</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Weekly Activity -->
+        <div class="card">
+          <div class="card-header">
+            <h3>This Week's Activity</h3>
+            <span style="font-size:0.8125rem;color:var(--text-muted)">Jan 13–19</span>
+          </div>
+          <div class="week-grid">
+            <div class="week-day">
+              <div class="week-dot active"></div>
+              <span class="week-label">Mon</span>
+            </div>
+            <div class="week-day">
+              <div class="week-dot active"></div>
+              <span class="week-label">Tue</span>
+            </div>
+            <div class="week-day">
+              <div class="week-dot"></div>
+              <span class="week-label">Wed</span>
+            </div>
+            <div class="week-day">
+              <div class="week-dot active"></div>
+              <span class="week-label">Thu</span>
+            </div>
+            <div class="week-day">
+              <div class="week-dot today"></div>
+              <span class="week-label">Fri</span>
+            </div>
+            <div class="week-day">
+              <div class="week-dot"></div>
+              <span class="week-label">Sat</span>
+            </div>
+            <div class="week-day">
+              <div class="week-dot"></div>
+              <span class="week-label">Sun</span>
+            </div>
+          </div>
+          <div style="padding:0 1.5rem 1.25rem;display:flex;gap:1rem;flex-wrap:wrap;">
+            <span style="display:flex;align-items:center;gap:0.375rem;font-size:0.75rem;color:var(--text-muted);">
+              <span style="width:12px;height:12px;background:var(--primary);border-radius:3px;display:inline-block;"></span> Active day
+            </span>
+            <span style="display:flex;align-items:center;gap:0.375rem;font-size:0.75rem;color:var(--text-muted);">
+              <span style="width:12px;height:12px;background:var(--primary-dark);border-radius:3px;display:inline-block;"></span> Today
+            </span>
+          </div>
+          <div class="card-footer">
+            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">
+              <strong style="color:var(--text)">4 active days</strong> this week — great consistency! 🔥
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+  </script>
 
 </body>
 </html>

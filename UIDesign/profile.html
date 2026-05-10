@@ -1,71 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - AI Career Copilot</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile &amp; Settings — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="dashboard.html" class="navbar-brand">
-                <i class="ph ph-compass-tool"></i>
-                Career Copilot
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="dashboard.html" class="nav-link">
-                        <i class="ph ph-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="resume-studio.html" class="nav-link">
-                        <i class="ph ph-file-text"></i>
-                        <span>Resume</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="opportunities.html" class="nav-link">
-                        <i class="ph ph-briefcase"></i>
-                        <span>Opportunities</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="interview-prep.html" class="nav-link">
-                        <i class="ph ph-microphone-stage"></i>
-                        <span>Interview Prep</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="career-tracker.html" class="nav-link">
-                        <i class="ph ph-chart-line-up"></i>
-                        <span>Tracker</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-profile">
-                <a href="profile.html" class="profile-link active">
-                    <img src="https://ui-avatars.com/api/?name=Student&background=0a66c2&color=fff&rounded=true" alt="Profile">
-                    <span class="profile-text">Me ▼</span>
-                </a>
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"     class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html"  class="nav-link"><i class="ph ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link"><i class="ph ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link"><i class="ph ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link"><i class="ph ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
             </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <a href="profile.html#password" class="dd-item"><i class="ph ph-lock-key"></i> Change Password</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        <div class="page-header">
-            <h1>Profile & Settings</h1>
+  <!-- ── MAIN ── -->
+  <main class="main-container">
+
+    <div class="page-header">
+      <h1>Profile &amp; Settings</h1>
+    </div>
+
+    <div class="profile-layout">
+
+      <!-- ── ASIDE ── -->
+      <aside>
+        <div class="card profile-aside" style="text-align:center;">
+
+          <div class="profile-avatar-wrap">
+            <img class="profile-avatar-large"
+                 src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff&size=200"
+                 alt="Jane Smith">
+            <button class="avatar-edit-btn" title="Change photo">
+              <i class="ph ph-pencil-simple"></i>
+            </button>
+          </div>
+
+          <h3>Jane Smith</h3>
+          <p>Computer Science · MIT<br>Class of 2026</p>
+
+          <!-- Completeness pill -->
+          <div style="margin-bottom:1.5rem;">
+            <div style="display:flex;justify-content:space-between;font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:0.375rem;">
+              <span>Profile completeness</span><span>78%</span>
+            </div>
+            <div class="progress-track" style="background:var(--bg);">
+              <div class="progress-fill pf-primary" style="width:78%;"></div>
+            </div>
+          </div>
+
+          <!-- Aside links -->
+          <div class="aside-links">
+            <a href="#personal" class="aside-link active" onclick="scrollTo('personal', this)">
+              <i class="ph ph-user"></i> Personal Information
+            </a>
+            <a href="#password" class="aside-link" onclick="scrollTo('password', this)" id="passwordLink">
+              <i class="ph ph-lock-key"></i> Change Password
+            </a>
+            <a href="#notifications" class="aside-link" onclick="scrollTo('notifications', this)">
+              <i class="ph ph-bell"></i> Notifications
+            </a>
+            <div style="height:1px;background:var(--border);margin:0.75rem 0;"></div>
+            <a href="index.html" class="aside-link danger">
+              <i class="ph ph-sign-out"></i> Sign Out
+            </a>
+          </div>
         </div>
-        <div class="content-card">
-            <p>Profile settings, change password, and logout options will be here.</p>
+      </aside>
+
+      <!-- ── MAIN CONTENT ── -->
+      <div>
+
+        <!-- ── Section 1: Personal Information ── -->
+        <div class="card" style="margin-bottom:1.5rem;" id="personal">
+          <div class="card-header">
+            <h3>Personal Information</h3>
+            <span class="badge badge-primary">78% complete</span>
+          </div>
+          <div class="card-body">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" value="Jane">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" value="Smith">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" value="jane.smith@mit.edu">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+
+            <div class="form-row-3">
+              <div class="form-group">
+                <label class="form-label">University</label>
+                <input type="text" class="form-control" value="MIT">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Major</label>
+                <input type="text" class="form-control" value="Computer Science">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Graduation Year</label>
+                <select class="form-control">
+                  <option>2025</option>
+                  <option selected>2026</option>
+                  <option>2027</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">LinkedIn URL</label>
+                <input type="url" class="form-control" placeholder="linkedin.com/in/your-name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Portfolio / GitHub</label>
+                <input type="url" class="form-control" placeholder="github.com/your-handle" value="github.com/janesmith">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Target Roles</label>
+              <input type="text" class="form-control" placeholder="e.g. Software Engineering Intern, ML Research" value="Software Engineering Intern, Data Science Intern">
+              <span class="form-hint">Comma-separated list of roles you're targeting</span>
+            </div>
+
+            <div class="form-group" style="margin-bottom:0;">
+              <label class="form-label">Skills &amp; Technologies</label>
+              <div class="skill-tags" id="skillTags">
+                <span class="skill-tag">Python <button onclick="removeTag(this)" title="Remove">×</button></span>
+                <span class="skill-tag">React.js <button onclick="removeTag(this)" title="Remove">×</button></span>
+                <span class="skill-tag">SQL <button onclick="removeTag(this)" title="Remove">×</button></span>
+                <span class="skill-tag">Machine Learning <button onclick="removeTag(this)" title="Remove">×</button></span>
+                <span class="skill-tag">Git <button onclick="removeTag(this)" title="Remove">×</button></span>
+                <span class="skill-tag">Node.js <button onclick="removeTag(this)" title="Remove">×</button></span>
+              </div>
+              <div style="display:flex;gap:0.5rem;margin-top:0.625rem;">
+                <input type="text" class="form-control" id="newSkillInput" placeholder="Add a skill…" style="flex:1;" onkeydown="if(event.key==='Enter'){addTag();event.preventDefault();}">
+                <button class="btn btn-outline btn-sm" onclick="addTag()"><i class="ph ph-plus"></i> Add</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-footer" style="display:flex;justify-content:flex-end;gap:0.75rem;">
+            <button class="btn btn-ghost btn-sm">Discard Changes</button>
+            <button class="btn btn-primary btn-sm"><i class="ph ph-check"></i> Save Changes</button>
+          </div>
         </div>
-    </main>
+
+        <!-- ── Section 2: Change Password ── -->
+        <div class="card" style="margin-bottom:1.5rem;" id="password">
+          <div class="section-toggle" id="pwToggle" onclick="toggleSection('pwBody', 'pwToggle')">
+            <h3><i class="ph ph-lock-key" style="color:var(--primary);margin-right:0.5rem;"></i>Change Password</h3>
+            <i class="ph ph-caret-down"></i>
+          </div>
+          <div class="section-body collapsed" id="pwBody">
+
+            <div class="form-group">
+              <label class="form-label">Current Password</label>
+              <input type="password" class="form-control" placeholder="Enter your current password">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">New Password</label>
+                <input type="password" class="form-control" placeholder="At least 8 characters">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Confirm New Password</label>
+                <input type="password" class="form-control" placeholder="Repeat new password">
+              </div>
+            </div>
+
+            <div style="background:var(--bg);border-radius:var(--r-md);padding:0.875rem 1rem;margin-bottom:1.25rem;">
+              <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;font-weight:600;margin-bottom:0.375rem;">Password requirements</p>
+              <ul style="list-style:disc;padding-left:1.25rem;">
+                <li style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.2rem;">At least 8 characters long</li>
+                <li style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.2rem;">Contains uppercase and lowercase letters</li>
+                <li style="font-size:0.75rem;color:var(--text-muted);">Includes at least one number or symbol</li>
+              </ul>
+            </div>
+
+            <button class="btn btn-primary btn-sm"><i class="ph ph-lock-key"></i> Update Password</button>
+          </div>
+        </div>
+
+        <!-- ── Section 3: Notifications ── -->
+        <div class="card" style="margin-bottom:1.5rem;" id="notifications">
+          <div class="section-toggle" id="notifToggle" onclick="toggleSection('notifBody', 'notifToggle')">
+            <h3><i class="ph ph-bell" style="color:var(--primary);margin-right:0.5rem;"></i>Notification Preferences</h3>
+            <i class="ph ph-caret-down"></i>
+          </div>
+          <div class="section-body collapsed" id="notifBody">
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                <div>
+                  <div style="font-size:0.875rem;font-weight:600;">New Internship Matches</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted);">Get notified when we find roles matching your profile</div>
+                </div>
+                <input type="checkbox" checked style="width:18px;height:18px;accent-color:var(--primary);">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                <div>
+                  <div style="font-size:0.875rem;font-weight:600;">Application Deadlines</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted);">Reminders 7 days before saved internship deadlines</div>
+                </div>
+                <input type="checkbox" checked style="width:18px;height:18px;accent-color:var(--primary);">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                <div>
+                  <div style="font-size:0.875rem;font-weight:600;">Weekly Progress Summary</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted);">A weekly digest of your career growth and activity</div>
+                </div>
+                <input type="checkbox" checked style="width:18px;height:18px;accent-color:var(--primary);">
+              </label>
+              <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
+                <div>
+                  <div style="font-size:0.875rem;font-weight:600;">Interview Practice Reminders</div>
+                  <div style="font-size:0.75rem;color:var(--text-muted);">Daily nudges to keep your interview prep streak going</div>
+                </div>
+                <input type="checkbox" style="width:18px;height:18px;accent-color:var(--primary);">
+              </label>
+            </div>
+            <div style="margin-top:1.25rem;">
+              <button class="btn btn-primary btn-sm"><i class="ph ph-check"></i> Save Preferences</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Danger Zone ── -->
+        <div class="danger-zone">
+          <div class="danger-zone-header">
+            <h3><i class="ph ph-warning" style="margin-right:0.375rem;"></i>Danger Zone</h3>
+          </div>
+          <div class="danger-zone-body">
+            <div style="flex:1;">
+              <h4 style="font-size:0.875rem;margin-bottom:0.25rem;">Sign Out of All Devices</h4>
+              <p style="margin:0;font-size:0.8125rem;">Revokes all active sessions across every device.</p>
+            </div>
+            <a href="index.html" class="btn btn-outline-danger btn-sm">
+              <i class="ph ph-sign-out"></i> Sign Out Everywhere
+            </a>
+          </div>
+          <div style="border-top:1px solid var(--danger-light);">
+            <div class="danger-zone-body">
+              <div style="flex:1;">
+                <h4 style="font-size:0.875rem;margin-bottom:0.25rem;">Delete Account</h4>
+                <p style="margin:0;font-size:0.8125rem;">Permanently deletes your account and all data. This cannot be undone.</p>
+              </div>
+              <button class="btn btn-danger btn-sm" onclick="confirmDelete()">
+                <i class="ph ph-trash"></i> Delete Account
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Profile dropdown
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    // Aside link highlight
+    function scrollTo(sectionId, link) {
+      document.querySelectorAll('.aside-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    }
+
+    // Collapsible section toggle
+    function toggleSection(bodyId, toggleId) {
+      const body   = document.getElementById(bodyId);
+      const toggle = document.getElementById(toggleId);
+      body.classList.toggle('collapsed');
+      toggle.classList.toggle('open');
+    }
+
+    // Auto-open password section if #password hash is in URL
+    if (window.location.hash === '#password') {
+      document.getElementById('pwBody').classList.remove('collapsed');
+      document.getElementById('pwToggle').classList.add('open');
+      document.getElementById('pwBody').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Skill tags
+    function removeTag(btn) {
+      btn.closest('.skill-tag').remove();
+    }
+
+    function addTag() {
+      const input = document.getElementById('newSkillInput');
+      const val = input.value.trim();
+      if (!val) return;
+      const tag = document.createElement('span');
+      tag.className = 'skill-tag';
+      tag.innerHTML = `${val} <button onclick="removeTag(this)" title="Remove">×</button>`;
+      document.getElementById('skillTags').appendChild(tag);
+      input.value = '';
+      input.focus();
+    }
+
+    // Delete account confirmation
+    function confirmDelete() {
+      if (confirm('Are you sure you want to permanently delete your account? This action cannot be undone.')) {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
 
 </body>
 </html>

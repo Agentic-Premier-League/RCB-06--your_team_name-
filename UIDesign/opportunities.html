@@ -1,71 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opportunities - AI Career Copilot</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Internships — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="dashboard.html" class="navbar-brand">
-                <i class="ph ph-compass-tool"></i>
-                Career Copilot
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="dashboard.html" class="nav-link">
-                        <i class="ph ph-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="resume-studio.html" class="nav-link">
-                        <i class="ph ph-file-text"></i>
-                        <span>Resume</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="opportunities.html" class="nav-link active">
-                        <i class="ph ph-briefcase"></i>
-                        <span>Opportunities</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="interview-prep.html" class="nav-link">
-                        <i class="ph ph-microphone-stage"></i>
-                        <span>Interview Prep</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="career-tracker.html" class="nav-link">
-                        <i class="ph ph-chart-line-up"></i>
-                        <span>Tracker</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-profile">
-                <a href="profile.html" class="profile-link">
-                    <img src="https://ui-avatars.com/api/?name=Student&background=0a66c2&color=fff&rounded=true" alt="Profile">
-                    <span class="profile-text">Me ▼</span>
-                </a>
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"    class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html" class="nav-link active"><i class="ph-fill ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link"><i class="ph ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link"><i class="ph ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link"><i class="ph ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
             </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <a href="profile.html#password" class="dd-item"><i class="ph ph-lock-key"></i> Change Password</a>
+              <a href="profile.html" class="dd-item"><i class="ph ph-bell"></i> Notifications</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        <div class="page-header">
-            <h1>Opportunities</h1>
+  <!-- ── MAIN ── -->
+  <main class="main-container">
+
+    <div class="page-header">
+      <h1>Internship Opportunities</h1>
+      <div style="display:flex;gap:0.75rem;align-items:center;">
+        <span style="font-size:0.875rem;color:var(--text-muted);">12 AI matches found</span>
+        <button class="btn btn-outline btn-sm"><i class="ph ph-sliders"></i> Sort</button>
+      </div>
+    </div>
+
+    <div class="opp-layout">
+
+      <!-- FILTER SIDEBAR -->
+      <aside>
+        <div class="card filter-card">
+          <h3 style="margin-bottom:1.25rem;font-size:0.9375rem;">Filters</h3>
+
+          <div class="filter-section">
+            <h4>Role Type</h4>
+            <label class="filter-option"><input type="checkbox" checked> Software Engineering</label>
+            <label class="filter-option"><input type="checkbox"> Product Management</label>
+            <label class="filter-option"><input type="checkbox"> Data Science</label>
+            <label class="filter-option"><input type="checkbox"> Design (UX/UI)</label>
+            <label class="filter-option"><input type="checkbox"> Marketing</label>
+          </div>
+
+          <div class="filter-sep"></div>
+
+          <div class="filter-section">
+            <h4>Work Type</h4>
+            <label class="filter-option"><input type="radio" name="work" checked> Any</label>
+            <label class="filter-option"><input type="radio" name="work"> Remote</label>
+            <label class="filter-option"><input type="radio" name="work"> Hybrid</label>
+            <label class="filter-option"><input type="radio" name="work"> On-site</label>
+          </div>
+
+          <div class="filter-sep"></div>
+
+          <div class="filter-section">
+            <h4>Location</h4>
+            <label class="filter-option"><input type="radio" name="loc" checked> Anywhere</label>
+            <label class="filter-option"><input type="radio" name="loc"> Bay Area</label>
+            <label class="filter-option"><input type="radio" name="loc"> Seattle, WA</label>
+            <label class="filter-option"><input type="radio" name="loc"> New York, NY</label>
+            <label class="filter-option"><input type="radio" name="loc"> Austin, TX</label>
+          </div>
+
+          <div class="filter-sep"></div>
+
+          <div class="filter-section">
+            <h4>Duration</h4>
+            <label class="filter-option"><input type="checkbox" checked> Summer 2025</label>
+            <label class="filter-option"><input type="checkbox"> Fall 2025</label>
+            <label class="filter-option"><input type="checkbox"> Co-op (6 mo)</label>
+          </div>
+
+          <button class="btn btn-primary btn-full btn-sm" style="margin-top:0.5rem;">Apply Filters</button>
+          <button class="btn btn-ghost btn-full btn-sm" style="margin-top:0.5rem;">Reset</button>
         </div>
-        <div class="content-card">
-            <p>Your matched and saved internships will appear here.</p>
+      </aside>
+
+      <!-- RESULTS -->
+      <div>
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'matches')">AI Matches <span style="color:var(--text-light);font-weight:400">(12)</span></button>
+          <button class="tab-btn"        onclick="switchTab(this,'saved')">Saved <span style="color:var(--text-light);font-weight:400">(4)</span></button>
+          <button class="tab-btn"        onclick="switchTab(this,'applied')">Applied <span style="color:var(--text-light);font-weight:400">(2)</span></button>
         </div>
-    </main>
+
+        <div class="card">
+
+          <!-- ── Card 1: Google ── -->
+          <div class="opp-card">
+            <div class="opp-logo" style="color:#4285f4;font-size:1.75rem;">
+              <i class="ph-fill ph-google-logo"></i>
+            </div>
+            <div class="opp-body">
+              <div class="opp-title-row">
+                <a href="internship-detail.html" class="opp-title">Software Engineering Intern — Summer 2025</a>
+                <span class="match-badge match-high">95% match</span>
+              </div>
+              <p class="opp-meta">Google · Mountain View, CA · Full-time Internship</p>
+              <div class="opp-tags">
+                <span class="opp-tag">Remote OK</span>
+                <span class="opp-tag">$8,000/mo stipend</span>
+                <span class="opp-tag">Python</span>
+                <span class="opp-tag">Distributed Systems</span>
+              </div>
+            </div>
+            <div class="opp-actions">
+              <span class="opp-deadline">Apply by Feb 15, 2025</span>
+              <div style="display:flex;gap:0.5rem;">
+                <button class="btn-icon saved" title="Saved"><i class="ph-fill ph-bookmark-simple"></i></button>
+                <a href="internship-detail.html" class="btn btn-primary btn-sm">Apply</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Card 2: Microsoft ── -->
+          <div class="opp-card">
+            <div class="opp-logo" style="color:#00a4ef;font-size:1.75rem;">
+              <i class="ph-fill ph-microsoft-teams-logo"></i>
+            </div>
+            <div class="opp-body">
+              <div class="opp-title-row">
+                <a href="internship-detail.html" class="opp-title">Product Manager Intern — Summer 2025</a>
+                <span class="match-badge match-mid">88% match</span>
+              </div>
+              <p class="opp-meta">Microsoft · Seattle, WA · Full-time Internship</p>
+              <div class="opp-tags">
+                <span class="opp-tag">Hybrid</span>
+                <span class="opp-tag">$7,200/mo stipend</span>
+                <span class="opp-tag">Product Strategy</span>
+                <span class="opp-tag">Agile</span>
+              </div>
+            </div>
+            <div class="opp-actions">
+              <span class="opp-deadline">Apply by Jan 31, 2025</span>
+              <div style="display:flex;gap:0.5rem;">
+                <button class="btn-icon" title="Save"><i class="ph ph-bookmark-simple"></i></button>
+                <a href="internship-detail.html" class="btn btn-primary btn-sm">Apply</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Card 3: Meta ── -->
+          <div class="opp-card">
+            <div class="opp-logo" style="color:#1877f2;font-size:1.75rem;">
+              <i class="ph-fill ph-meta-logo"></i>
+            </div>
+            <div class="opp-body">
+              <div class="opp-title-row">
+                <a href="internship-detail.html" class="opp-title">Data Science Intern — Summer 2025</a>
+                <span class="match-badge match-mid">82% match</span>
+              </div>
+              <p class="opp-meta">Meta · Menlo Park, CA · Full-time Internship</p>
+              <div class="opp-tags">
+                <span class="opp-tag">On-site</span>
+                <span class="opp-tag">$9,000/mo stipend</span>
+                <span class="opp-tag">Python</span>
+                <span class="opp-tag">SQL</span>
+                <span class="opp-tag">Machine Learning</span>
+              </div>
+            </div>
+            <div class="opp-actions">
+              <span class="opp-deadline">Apply by Feb 28, 2025</span>
+              <div style="display:flex;gap:0.5rem;">
+                <button class="btn-icon saved" title="Saved"><i class="ph-fill ph-bookmark-simple"></i></button>
+                <a href="internship-detail.html" class="btn btn-primary btn-sm">Apply</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Card 4: Stripe ── -->
+          <div class="opp-card">
+            <div class="opp-logo" style="color:#635bff;font-size:1.5rem;font-weight:900;font-style:italic;align-items:center;justify-content:center;display:flex;">
+              S
+            </div>
+            <div class="opp-body">
+              <div class="opp-title-row">
+                <a href="internship-detail.html" class="opp-title">Frontend Engineer Intern — Summer 2025</a>
+                <span class="match-badge match-mid">79% match</span>
+              </div>
+              <p class="opp-meta">Stripe · San Francisco, CA · Full-time Internship</p>
+              <div class="opp-tags">
+                <span class="opp-tag">Remote OK</span>
+                <span class="opp-tag">$8,500/mo stipend</span>
+                <span class="opp-tag">React</span>
+                <span class="opp-tag">TypeScript</span>
+              </div>
+            </div>
+            <div class="opp-actions">
+              <span class="opp-deadline">Apply by Mar 1, 2025</span>
+              <div style="display:flex;gap:0.5rem;">
+                <button class="btn-icon" title="Save"><i class="ph ph-bookmark-simple"></i></button>
+                <a href="internship-detail.html" class="btn btn-primary btn-sm">Apply</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Card 5: Airbnb ── -->
+          <div class="opp-card">
+            <div class="opp-logo" style="color:#ff5a5f;font-size:1.75rem;">
+              <i class="ph-fill ph-airplay"></i>
+            </div>
+            <div class="opp-body">
+              <div class="opp-title-row">
+                <a href="internship-detail.html" class="opp-title">Mobile Engineering Intern — Summer 2025</a>
+                <span class="match-badge match-low">75% match</span>
+              </div>
+              <p class="opp-meta">Airbnb · San Francisco, CA · Full-time Internship</p>
+              <div class="opp-tags">
+                <span class="opp-tag">Hybrid</span>
+                <span class="opp-tag">$7,800/mo stipend</span>
+                <span class="opp-tag">React Native</span>
+                <span class="opp-tag">iOS/Android</span>
+              </div>
+            </div>
+            <div class="opp-actions">
+              <span class="opp-deadline">Apply by Feb 10, 2025</span>
+              <div style="display:flex;gap:0.5rem;">
+                <button class="btn-icon" title="Save"><i class="ph ph-bookmark-simple"></i></button>
+                <a href="internship-detail.html" class="btn btn-outline btn-sm">Apply</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div style="display:flex;justify-content:center;align-items:center;gap:0.5rem;margin-top:1.5rem;">
+          <button class="btn btn-ghost btn-sm" disabled><i class="ph ph-caret-left"></i> Prev</button>
+          <span style="font-size:0.875rem;color:var(--text-muted);">Page 1 of 3</span>
+          <button class="btn btn-ghost btn-sm">Next <i class="ph ph-caret-right"></i></button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Profile dropdown
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    // Tab switching
+    function switchTab(btn, tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Bookmark toggle
+    document.querySelectorAll('.btn-icon').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('saved');
+        const icon = btn.querySelector('i');
+        if (btn.classList.contains('saved')) {
+          icon.className = 'ph-fill ph-bookmark-simple';
+        } else {
+          icon.className = 'ph ph-bookmark-simple';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>

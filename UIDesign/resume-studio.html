@@ -1,71 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Studio - AI Career Copilot</title>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Studio — Career Copilot</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="dashboard.html" class="navbar-brand">
-                <i class="ph ph-compass-tool"></i>
-                Career Copilot
-            </a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="dashboard.html" class="nav-link">
-                        <i class="ph ph-house"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="resume-studio.html" class="nav-link active">
-                        <i class="ph ph-file-text"></i>
-                        <span>Resume</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="opportunities.html" class="nav-link">
-                        <i class="ph ph-briefcase"></i>
-                        <span>Opportunities</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="interview-prep.html" class="nav-link">
-                        <i class="ph ph-microphone-stage"></i>
-                        <span>Interview Prep</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="career-tracker.html" class="nav-link">
-                        <i class="ph ph-chart-line-up"></i>
-                        <span>Tracker</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="navbar-profile">
-                <a href="profile.html" class="profile-link">
-                    <img src="https://ui-avatars.com/api/?name=Student&background=0a66c2&color=fff&rounded=true" alt="Profile">
-                    <span class="profile-text">Me ▼</span>
-                </a>
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="navbar-brand">
+        <i class="ph-fill ph-compass-tool"></i>
+        Career Copilot
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="dashboard.html"     class="nav-link"><i class="ph ph-house"></i><span>Home</span></a></li>
+        <li class="nav-item"><a href="opportunities.html"  class="nav-link"><i class="ph ph-briefcase"></i><span>Internships</span></a></li>
+        <li class="nav-item"><a href="interview-prep.html" class="nav-link"><i class="ph ph-microphone-stage"></i><span>Mock Interview</span></a></li>
+        <li class="nav-item"><a href="career-tracker.html" class="nav-link"><i class="ph ph-chart-line-up"></i><span>My Growth</span></a></li>
+        <li class="nav-item"><a href="resume-studio.html"  class="nav-link active"><i class="ph-fill ph-magic-wand"></i><span>Resume Studio</span></a></li>
+      </ul>
+      <div class="navbar-right">
+        <div class="profile-menu" id="profileMenu">
+          <button class="profile-trigger" id="profileTrigger">
+            <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+            <span class="trigger-label">Me <i class="ph ph-caret-down"></i></span>
+          </button>
+          <div class="profile-dropdown">
+            <div class="dd-header">
+              <img class="dd-avatar" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0a66c2&color=fff" alt="Jane Smith">
+              <div class="dd-info"><h4>Jane Smith</h4><p>CS Junior · MIT</p></div>
             </div>
+            <div class="dd-menu">
+              <a href="profile.html" class="dd-item"><i class="ph ph-user-circle"></i> View Profile</a>
+              <a href="profile.html#password" class="dd-item"><i class="ph ph-lock-key"></i> Change Password</a>
+              <div class="dd-sep"></div>
+              <a href="index.html" class="dd-item danger"><i class="ph ph-sign-out"></i> Sign Out</a>
+            </div>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Main Content -->
-    <main class="main-container">
-        <div class="page-header">
-            <h1>Resume Studio</h1>
+  <!-- ── MAIN ── -->
+  <main class="main-container">
+
+    <!-- Hero Banner -->
+    <div class="card studio-banner">
+      <div>
+        <h2>AI Resume Tailor Studio</h2>
+        <p>Upload your resume and paste any job description — our AI analyzes keyword gaps and suggests targeted improvements in seconds.</p>
+      </div>
+      <div class="studio-badge">
+        <i class="ph ph-magic-wand"></i> Innovative Feature
+      </div>
+    </div>
+
+    <!-- Input split panel -->
+    <div class="studio-layout">
+
+      <!-- LEFT: Resume upload -->
+      <div class="card studio-panel">
+        <h3><i class="ph ph-file-text" style="color:var(--primary)"></i> Your Resume</h3>
+
+        <!-- Uploaded state (shown by default as demo) -->
+        <div id="file-uploaded-state">
+          <div class="file-uploaded">
+            <i class="ph-fill ph-file-pdf"></i>
+            <div class="file-uploaded-info">
+              <h4>resume_jane_smith.pdf</h4>
+              <p>Uploaded · 142 KB</p>
+            </div>
+          </div>
+          <div class="pdf-preview">
+            <i class="ph ph-file-pdf"></i>
+            <p>resume_jane_smith.pdf</p>
+            <p style="font-size:0.75rem;">2 pages · Last modified Jan 10, 2025</p>
+          </div>
+          <button class="btn btn-ghost btn-sm" onclick="showUploadZone()">
+            <i class="ph ph-arrow-counter-clockwise"></i> Re-upload Resume
+          </button>
         </div>
-        <div class="content-card">
-            <p>Upload your resume here to get AI-powered feedback.</p>
+
+        <!-- Upload zone (hidden by default) -->
+        <div id="upload-zone-state" class="hidden">
+          <div class="upload-zone" style="padding:2rem;" onclick="document.getElementById('studioFile').click()">
+            <i class="ph ph-cloud-arrow-up"></i>
+            <h3>Upload your resume</h3>
+            <p>Drag &amp; drop or <strong>browse</strong></p>
+            <span class="upload-hint">PDF or DOCX · Max 5 MB</span>
+            <input type="file" id="studioFile" hidden accept=".pdf,.docx">
+          </div>
         </div>
-    </main>
+      </div>
+
+      <!-- RIGHT: Job description -->
+      <div class="card studio-panel">
+        <h3><i class="ph ph-briefcase" style="color:var(--primary)"></i> Target Job Description</h3>
+
+        <div class="form-row" style="margin-bottom:1rem;">
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Company</label>
+            <input type="text" class="form-control" placeholder="e.g. Google" id="companyInput" value="Google">
+          </div>
+          <div class="form-group" style="margin-bottom:0">
+            <label class="form-label">Role Title</label>
+            <input type="text" class="form-control" placeholder="e.g. SWE Intern" id="roleInput" value="Software Engineering Intern">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1.25rem;">
+          <label class="form-label">Paste Job Description</label>
+          <textarea class="form-control" rows="9" id="jdTextarea" placeholder="Paste the full job description here...">We are looking for a Software Engineering Intern to join our team for Summer 2025. You will work on distributed systems, building scalable backend services using Python, Go, and Kubernetes. Candidates should have experience with REST APIs, SQL databases, and agile development methodologies. Familiarity with TypeScript and React is a plus. Strong problem-solving skills and passion for open-source projects are highly valued.</textarea>
+        </div>
+
+        <button class="btn btn-primary btn-full" onclick="showResults()" id="analyzeBtn">
+          <i class="ph ph-sparkle"></i> Analyze Match
+        </button>
+      </div>
+    </div>
+
+    <!-- Results section (shown after analysis) -->
+    <div id="results-section" class="card" style="overflow:visible;">
+      <div class="card-header" style="border-bottom:none;padding-bottom:0;">
+        <h3>Analysis Results — Google Software Engineering Intern</h3>
+        <span class="badge badge-primary">AI-powered</span>
+      </div>
+
+      <div class="card-body" style="padding-top:1rem;">
+
+        <!-- Score + columns -->
+        <div style="display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap;">
+
+          <!-- Gauge -->
+          <div style="flex-shrink:0;text-align:center;">
+            <div class="gauge-circle">
+              <span class="gauge-num">74</span>
+              <span class="gauge-sub">/ 100</span>
+            </div>
+            <div class="gauge-label" style="margin-top:0.625rem;">Match Score</div>
+            <span class="badge badge-warning" style="margin-top:0.5rem;font-size:0.75rem;">Good — Can Improve</span>
+          </div>
+
+          <!-- Three result columns -->
+          <div class="results-grid" style="flex:1;min-width:0;">
+
+            <!-- Found keywords -->
+            <div class="result-col">
+              <h4 style="color:var(--success);"><i class="ph ph-check-circle"></i> Keywords Found (8)</h4>
+              <div class="keyword-tags">
+                <span class="kw-tag kw-present">Python</span>
+                <span class="kw-tag kw-present">REST APIs</span>
+                <span class="kw-tag kw-present">SQL</span>
+                <span class="kw-tag kw-present">Agile</span>
+                <span class="kw-tag kw-present">Git</span>
+                <span class="kw-tag kw-present">React</span>
+                <span class="kw-tag kw-present">Backend</span>
+                <span class="kw-tag kw-present">Problem-solving</span>
+              </div>
+            </div>
+
+            <!-- Missing keywords -->
+            <div class="result-col">
+              <h4 style="color:var(--danger);"><i class="ph ph-x-circle"></i> Missing Keywords (5)</h4>
+              <div class="keyword-tags">
+                <span class="kw-tag kw-missing">Kubernetes</span>
+                <span class="kw-tag kw-missing">Go / Golang</span>
+                <span class="kw-tag kw-missing">Distributed systems</span>
+                <span class="kw-tag kw-missing">TypeScript</span>
+                <span class="kw-tag kw-missing">Open-source</span>
+              </div>
+            </div>
+
+            <!-- AI suggestions -->
+            <div class="result-col">
+              <h4 style="color:var(--primary);"><i class="ph ph-lightbulb"></i> AI Suggestions</h4>
+
+              <div class="suggestion-item">
+                <i class="ph ph-plus-circle"></i>
+                <p>Add a bullet mentioning your experience with <strong>distributed systems</strong> in your Google internship or project section.</p>
+              </div>
+              <div class="suggestion-item">
+                <i class="ph ph-plus-circle"></i>
+                <p>Include <strong>Kubernetes</strong> and <strong>Docker</strong> in your skills list — even beginner-level familiarity is worth adding.</p>
+              </div>
+              <div class="suggestion-item">
+                <i class="ph ph-pencil-simple"></i>
+                <p>Mention any <strong>open-source contributions</strong> in a Projects section to align with the role's stated preference.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="border-top:1px solid var(--border);margin-top:1.5rem;padding-top:1.5rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-primary btn-lg">
+            <i class="ph ph-download-simple"></i> Generate Tailored Resume
+          </button>
+          <button class="btn btn-outline">
+            <i class="ph ph-arrows-clockwise"></i> Re-analyze
+          </button>
+          <p style="margin:0;margin-left:auto;font-size:0.8125rem;color:var(--text-light);">
+            Tailored version includes all missing keywords added naturally to your content.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Profile dropdown
+    const menu = document.getElementById('profileMenu');
+    document.getElementById('profileTrigger').addEventListener('click', e => { e.stopPropagation(); menu.classList.toggle('open'); });
+    document.addEventListener('click', () => menu.classList.remove('open'));
+
+    // Toggle upload zone
+    function showUploadZone() {
+      document.getElementById('file-uploaded-state').classList.add('hidden');
+      document.getElementById('upload-zone-state').classList.remove('hidden');
+    }
+
+    document.getElementById('studioFile')?.addEventListener('change', e => {
+      if (e.target.files.length) {
+        document.getElementById('upload-zone-state').classList.add('hidden');
+        document.getElementById('file-uploaded-state').classList.remove('hidden');
+      }
+    });
+
+    // Show results on analyze click
+    function showResults() {
+      const btn = document.getElementById('analyzeBtn');
+      btn.innerHTML = '<i class="ph ph-circle-notch"></i> Analyzing...';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        btn.innerHTML = '<i class="ph ph-sparkle"></i> Analyze Match';
+        btn.disabled = false;
+      }, 1200);
+    }
+  </script>
 
 </body>
 </html>
